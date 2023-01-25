@@ -67,7 +67,7 @@ namespace Interfaz
             ObjetosVentana.gridBattlenet.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridAmazon.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridEpicGames.Visibility = Visibility.Collapsed;
-            ObjetosVentana.gridWidgetPrecarga.Visibility = Visibility.Collapsed;
+            ObjetosVentana.gridTilesPrecarga.Visibility = Visibility.Collapsed;
             ObjetosVentana.gridOpciones.Visibility = Visibility.Collapsed;
 
             grid.Visibility = Visibility.Visible;

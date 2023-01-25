@@ -24,6 +24,7 @@ namespace Tiles_Games
             EAPlay.Cargar();
             Ubisoft.Cargar();
             EpicGames.Cargar();
+            Tiles.Cargar();
             Opciones.CargarDatos();
 
             Pestañas.Visibilidad(gridPresentacion, true, null, false);
@@ -50,7 +51,7 @@ namespace Tiles_Games
             ObjetosVentana.gridBattlenet = gridBattlenet;
             ObjetosVentana.gridAmazon = gridAmazon;
             ObjetosVentana.gridEpicGames = gridEpicGames;
-            ObjetosVentana.gridWidgetPrecarga = gridWidgetPrecarga;
+            ObjetosVentana.gridTilesPrecarga = gridTilesPrecarga;
             ObjetosVentana.gridOpciones = gridOpciones;
 
             //-------------------------------------------------------------------
@@ -122,21 +123,25 @@ namespace Tiles_Games
 
             //-------------------------------------------------------------------
 
-            ObjetosVentana.svWidgetPrecarga = svWidgetPrecarga;
-            ObjetosVentana.tbWidgetPrecargaTitulo = tbWidgetPrecargaTitulo;
-            ObjetosVentana.expanderWidgetPrecargaDatos = expanderWidgetPrecargaDatos;
-            ObjetosVentana.tbWidgetPrecargaEjecutable = tbWidgetPrecargaEjecutable;
-            ObjetosVentana.tbWidgetPrecargaArgumentos = tbWidgetPrecargaArgumentos;
-            ObjetosVentana.tbWidgetPrecargaImagenPequeña = tbWidgetPrecargaPequena;
-            ObjetosVentana.tbWidgetPrecargaImagenGrande = tbWidgetPrecargaGrande;
-            ObjetosVentana.expanderWidgetPrecargaPersonalizacion = expanderWidgetPrecargaPersonalizacion;
-            ObjetosVentana.cbWidgetPrecargaImagen = cbWidgetPrecargaImagen;
-            ObjetosVentana.tbWidgetPrecargaMensajeImagen = tbWidgetPrecargaMensajeImagen;
-            ObjetosVentana.imagenWidgetPrecargaElegida = imagenWidgetPrecargaElegida;
-            ObjetosVentana.cbWidgetPrecargaImagenOrientacionHorizontal = cbWidgetPrecargaImagenOrientacionHorizontal;
-            ObjetosVentana.cbWidgetPrecargaImagenOrientacionVertical = cbWidgetPrecargaImagenOrientacionVertical;
-            ObjetosVentana.botonWidgetPrecargaCargarJuego = botonWidgetPrecargaCargarJuego;
-            ObjetosVentana.tbWidgetCargarJuegoMensaje = tbWidgetCargarJuegoMensaje;
+            ObjetosVentana.svTilesPrecarga = svTilesPrecarga;
+            ObjetosVentana.expanderTilesPrecargaDatos = expanderTilesPrecargaDatos;
+            ObjetosVentana.tbTilesPrecargaTitulo = tbTilesPrecargaTitulo;
+            ObjetosVentana.tbTilesPrecargaEjecutable = tbTilesPrecargaEjecutable;
+            ObjetosVentana.tbTilesPrecargaArgumentos = tbTilesPrecargaArgumentos;
+            ObjetosVentana.tbTilesPrecargaImagenPequeña = tbTilesPrecargaImagenPequena;
+            ObjetosVentana.tbTilesPrecargaImagenMediana = tbTilesPrecargaImagenMediana;
+            ObjetosVentana.tbTilesPrecargaImagenAncha = tbTilesPrecargaImagenAncha;
+            ObjetosVentana.tbTilesPrecargaImagenGrande = tbTilesPrecargaImagenGrande;
+            ObjetosVentana.gridTilesPrecargaImagenPequeña = gridTilesPrecargaImagenPequena;
+            ObjetosVentana.gridTilesPrecargaImagenMediana = gridTilesPrecargaImagenMediana;
+            ObjetosVentana.gridTilesPrecargaImagenAncha = gridTilesPrecargaImagenAncha;
+            ObjetosVentana.gridTilesPrecargaImagenGrande = gridTilesPrecargaImagenGrande;
+            ObjetosVentana.imagenTilesPrecargaPequeña = imagenTilesPrecargaPequena;
+            ObjetosVentana.imagenTilesPrecargaMediana = imagenTilesPrecargaMediana;
+            ObjetosVentana.imagenTilesPrecargaAncha = imagenTilesPrecargaAncha;
+            ObjetosVentana.imagenTilesPrecargaGrande = imagenTilesPrecargaGrande;
+
+            ObjetosVentana.botonTilesCargarJuego = botonTilesCargarJuego;
 
             //-------------------------------------------------------------------
 
@@ -167,7 +172,7 @@ namespace Tiles_Games
             public static Grid gridBattlenet { get; set; }
             public static Grid gridAmazon { get; set; }
             public static Grid gridEpicGames { get; set; }
-            public static Grid gridWidgetPrecarga { get; set; }
+            public static Grid gridTilesPrecarga { get; set; }
             public static Grid gridOpciones { get; set; }
 
             //-------------------------------------------------------------------
@@ -239,21 +244,24 @@ namespace Tiles_Games
 
             //-------------------------------------------------------------------
 
-            public static ScrollViewer svWidgetPrecarga { get; set; }
-            public static TextBlock tbWidgetPrecargaTitulo { get; set; }
-            public static Microsoft.UI.Xaml.Controls.Expander expanderWidgetPrecargaDatos { get; set; }
-            public static TextBox tbWidgetPrecargaEjecutable { get; set; }
-            public static TextBox tbWidgetPrecargaArgumentos { get; set; }
-            public static TextBox tbWidgetPrecargaImagenPequeña { get; set; }
-            public static TextBox tbWidgetPrecargaImagenGrande { get; set; }
-            public static Microsoft.UI.Xaml.Controls.Expander expanderWidgetPrecargaPersonalizacion { get; set; }
-            public static ComboBox cbWidgetPrecargaImagen { get; set; }
-            public static TextBlock tbWidgetPrecargaMensajeImagen { get; set; }
-            public static ImageEx imagenWidgetPrecargaElegida { get; set; }
-            public static ComboBox cbWidgetPrecargaImagenOrientacionHorizontal { get; set; }
-            public static ComboBox cbWidgetPrecargaImagenOrientacionVertical { get; set; }
-            public static Button botonWidgetPrecargaCargarJuego { get; set; }
-            public static TextBlock tbWidgetCargarJuegoMensaje { get; set; }
+            public static ScrollViewer svTilesPrecarga { get; set; }
+            public static Microsoft.UI.Xaml.Controls.Expander expanderTilesPrecargaDatos { get; set; }
+            public static TextBox tbTilesPrecargaTitulo { get; set; }
+            public static TextBox tbTilesPrecargaEjecutable { get; set; }
+            public static TextBox tbTilesPrecargaArgumentos { get; set; }
+            public static TextBox tbTilesPrecargaImagenPequeña { get; set; }
+            public static TextBox tbTilesPrecargaImagenMediana { get; set; }
+            public static TextBox tbTilesPrecargaImagenAncha { get; set; }
+            public static TextBox tbTilesPrecargaImagenGrande { get; set; }
+            public static Grid gridTilesPrecargaImagenPequeña { get; set; }
+            public static Grid gridTilesPrecargaImagenMediana { get; set; }
+            public static Grid gridTilesPrecargaImagenAncha { get; set; }
+            public static Grid gridTilesPrecargaImagenGrande { get; set; }
+            public static ImageEx imagenTilesPrecargaPequeña { get; set; }
+            public static ImageEx imagenTilesPrecargaMediana { get; set; }
+            public static ImageEx imagenTilesPrecargaAncha { get; set; }
+            public static ImageEx imagenTilesPrecargaGrande { get; set; }
+            public static Button botonTilesCargarJuego { get; set; }
 
             //-------------------------------------------------------------------
 
@@ -405,7 +413,7 @@ namespace Tiles_Games
                             }
                             else if (tb.Text == recursos.GetString("AnyGame"))
                             {
-                                Pestañas.Visibilidad(gridWidgetPrecarga, true, null, false);
+                                Pestañas.Visibilidad(gridTilesPrecarga, true, null, false);
                                 BarraTitulo.CambiarTitulo(null);
                                 //WidgetPrecarga.PrecargarJuego(null, null, null, null, null);
                             }
@@ -480,7 +488,7 @@ namespace Tiles_Games
 
         private void AbrirCualquierJuegoClick(object sender, RoutedEventArgs e)
         {
-            Pestañas.Visibilidad(gridWidgetPrecarga, true, null, false);
+            Pestañas.Visibilidad(gridTilesPrecarga, true, null, false);
             BarraTitulo.CambiarTitulo(null);
             //WidgetPrecarga.PrecargarJuego(null, null, null, null, null);
         }

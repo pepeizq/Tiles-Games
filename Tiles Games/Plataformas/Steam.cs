@@ -241,10 +241,10 @@ namespace Plataformas
             Button boton = sender as Button;
             SteamJuego juego = boton.Tag as SteamJuego;
 
-            //WidgetPrecarga.PrecargarJuego(juego.nombre,
-            //        "steam://rungameid/" + juego.id + "/", null,
-            //        dominioImagenes + "/steam/apps/" + juego.id + "/header.jpg",
-            //        dominioImagenes + "/steam/apps/" + juego.id + "/library_600x900.jpg");
+            Tiles.PrecargarJuego(juego.nombre,
+                    "steam://rungameid/" + juego.id + "/", null, juego.id, "steam",
+                    dominioImagenes + "/steam/apps/" + juego.id + "/header.jpg",
+                    dominioImagenes + "/steam/apps/" + juego.id + "/library_600x900.jpg");
         }
 
         private async static void EnlaceCualquierJuegoTextoCambia(object sender, TextChangedEventArgs e)

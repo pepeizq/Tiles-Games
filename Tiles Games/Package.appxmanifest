@@ -14,7 +14,7 @@
   <Properties>
     <DisplayName>Tiles Games</DisplayName>
     <PublisherDisplayName>pepei</PublisherDisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <Logo>Assets\Logos2\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
@@ -32,12 +32,18 @@
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
         DisplayName="Tiles Games"
-        Description="Tiles Games"
-        BackgroundColor="transparent"
-        Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        Description="https://pepeizqapps.com/"
+        BackgroundColor="#171a21"
+        Square150x150Logo="Assets\Logos2\Square150x150Logo.png"
+        Square44x44Logo="Assets\Logos2\Square44x44Logo.png">
+        <uap:SplashScreen Image="Assets\Logos2\SplashScreen.png"  BackgroundColor="#171a21"/>
+
+		<uap:DefaultTile Wide310x150Logo="Assets\Logos2\Wide310x150Logo.png" ShortName="Tiles for Games" Square310x310Logo="Assets\Logos2\Large310x310Logo.png" Square71x71Logo="Assets\Logos2\Small71x71Logo.png">
+			<uap:ShowNameOnTiles>
+				<uap:ShowOn Tile="square310x310Logo" />
+			</uap:ShowNameOnTiles>
+		</uap:DefaultTile>
+        <uap:LockScreen BadgeLogo="Assets\Logos2\BadgeLogo.png" Notification="badge"/>
       </uap:VisualElements>
     </Application>
   </Applications>

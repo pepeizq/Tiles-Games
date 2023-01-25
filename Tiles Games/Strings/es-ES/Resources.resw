@@ -156,8 +156,14 @@
   <data name="ImageBig.Text" xml:space="preserve">
     <value>Imagen Grande</value>
   </data>
+  <data name="ImageMedium.Text" xml:space="preserve">
+    <value>Imagen Mediana</value>
+  </data>
   <data name="ImageSmall.Text" xml:space="preserve">
     <value>Imagen Pequeña</value>
+  </data>
+  <data name="ImageWide.Text" xml:space="preserve">
+    <value>Imagen Ancha</value>
   </data>
   <data name="Left.Text" xml:space="preserve">
     <value>Izquierda</value>
@@ -241,6 +247,9 @@
     <value>Añade widgets para tus juegos de de Steam en la app Widgets de Windows 11.
 
 Una vez añadido el widget del juego, puedes ejecutarlo desde la app de Widgets.</value>
+  </data>
+  <data name="Title.Text" xml:space="preserve">
+    <value>Título</value>
   </data>
   <data name="Top.Text" xml:space="preserve">
     <value>Arriba</value>

@@ -22,7 +22,7 @@ namespace Interfaz
             ObjetosVentana.svBattlenetJuegosInstalados.ViewChanging += svScroll;
             ObjetosVentana.svAmazonJuegosInstalados.ViewChanging += svScroll;
             ObjetosVentana.svEpicGamesJuegosInstalados.ViewChanging += svScroll;
-            ObjetosVentana.svWidgetPrecarga.ViewChanging += svScroll;
+            ObjetosVentana.svTilesPrecarga.ViewChanging += svScroll;
             ObjetosVentana.svOpciones.ViewChanging += svScroll;
         }
 
@@ -76,9 +76,9 @@ namespace Interfaz
             {
                 ObjetosVentana.svEpicGamesJuegosInstalados.ChangeView(null, 0, null);
             }
-            else if (ObjetosVentana.gridWidgetPrecarga.Visibility == Visibility.Visible)
+            else if (ObjetosVentana.gridTilesPrecarga.Visibility == Visibility.Visible)
             {
-                ObjetosVentana.svWidgetPrecarga.ChangeView(null, 0, null);
+                ObjetosVentana.svTilesPrecarga.ChangeView(null, 0, null);
             }
             else if (ObjetosVentana.gridOpciones.Visibility == Visibility.Visible)
             {
