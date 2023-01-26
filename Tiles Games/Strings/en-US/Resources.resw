@@ -124,22 +124,13 @@
     <value>Arguments</value>
   </data>
   <data name="BattlenetInstalledGamesMessage.Text" xml:space="preserve">
-    <value>Remember, to run the game from Widgets you must have it installed in the Battle.net app.</value>
+    <value>Remember, to run the game from a tile you must have it installed in the Battle.net app.</value>
   </data>
   <data name="Bottom.Text" xml:space="preserve">
     <value>Bottom</value>
   </data>
   <data name="Center.Text" xml:space="preserve">
     <value>Center</value>
-  </data>
-  <data name="ChooseImage.Text" xml:space="preserve">
-    <value>Choose the type of image before preloading the Widget:</value>
-  </data>
-  <data name="ChooseImageBig" xml:space="preserve">
-    <value>The big image is best suited for medium and large size widgets.</value>
-  </data>
-  <data name="ChooseImageSmall" xml:space="preserve">
-    <value>The small image is best suited to the small size widget.</value>
   </data>
   <data name="Contact.Text" xml:space="preserve">
     <value>Contact</value>
@@ -152,6 +143,9 @@
   </data>
   <data name="Executable.Text" xml:space="preserve">
     <value>Executable</value>
+  </data>
+  <data name="Fill.Text" xml:space="preserve">
+    <value>Fill</value>
   </data>
   <data name="ImageBig.Text" xml:space="preserve">
     <value>Big Image</value>
@@ -192,6 +186,9 @@
   <data name="NoGamesDetected.Text" xml:space="preserve">
     <value>No Games Detected</value>
   </data>
+  <data name="None.Text" xml:space="preserve">
+    <value>None</value>
+  </data>
   <data name="Options" xml:space="preserve">
     <value>Options</value>
   </data>
@@ -222,14 +219,23 @@
   <data name="OptionsLanguageInfo.Text" xml:space="preserve">
     <value>Select the language of the application, a restart is necessary in the application to make the change.</value>
   </data>
+  <data name="OrientationHorizontal.Text" xml:space="preserve">
+    <value>Horizontal Orientation</value>
+  </data>
+  <data name="OrientationVertical.Text" xml:space="preserve">
+    <value>Vertical Orientation</value>
+  </data>
   <data name="PresentationMessage.Text" xml:space="preserve">
-    <value>Select the platform where you have the game to add as a widget:</value>
+    <value>Select the platform where you have the game to add as a tile:</value>
   </data>
   <data name="Right.Text" xml:space="preserve">
     <value>Right</value>
   </data>
   <data name="SelectFolderInstalledGames.Text" xml:space="preserve">
     <value>Select the folder where you have the games installed:</value>
+  </data>
+  <data name="SourceUrl.Text" xml:space="preserve">
+    <value>Image Url:</value>
   </data>
   <data name="SteamAnyGames.Text" xml:space="preserve">
     <value>Any game</value>
@@ -238,15 +244,31 @@
     <value>Enter the link of any game on Steam:</value>
   </data>
   <data name="SteamAnyGamesMessage2.Text" xml:space="preserve">
-    <value>Remember, to run it from Widgets you must have the game on Steam.</value>
+    <value>Remember, to run the game from a tile you must have the game on Steam.</value>
   </data>
   <data name="SteamInstalledGames.Text" xml:space="preserve">
     <value>Installed games</value>
   </data>
-  <data name="StoreDescription" xml:space="preserve">
-    <value>Add widgets from your Steam games to the Windows 11 Widgets app. 
-
-Once you've added a game widget you can run it from the Widget app.</value>
+  <data name="Stretch.Text" xml:space="preserve">
+    <value>Stretch</value>
+  </data>
+  <data name="Stretch2.Text" xml:space="preserve">
+    <value>Stretch</value>
+  </data>
+  <data name="TileAddGame.Text" xml:space="preserve">
+    <value>Add Game Tile</value>
+  </data>
+  <data name="TileBig.Text" xml:space="preserve">
+    <value>Big Tile</value>
+  </data>
+  <data name="TileMedium.Text" xml:space="preserve">
+    <value>Medium Tile</value>
+  </data>
+  <data name="TileSmall.Text" xml:space="preserve">
+    <value>Small Tile</value>
+  </data>
+  <data name="TileWide.Text" xml:space="preserve">
+    <value>Wide Tile</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>Title</value>
@@ -254,25 +276,10 @@ Once you've added a game widget you can run it from the Widget app.</value>
   <data name="Top.Text" xml:space="preserve">
     <value>Top</value>
   </data>
-  <data name="TrialBuyApp.Text" xml:space="preserve">
-    <value>Buy App</value>
+  <data name="Uniform.Text" xml:space="preserve">
+    <value>Uniform</value>
   </data>
-  <data name="TrialMessage.Text" xml:space="preserve">
-    <value>You are using a trial version of the app, you can only add 1 widget.</value>
-  </data>
-  <data name="WidgetImageOrientation.Text" xml:space="preserve">
-    <value>Alignment of the image in the Widget:</value>
-  </data>
-  <data name="WidgetImageOrientationHorizontal.Text" xml:space="preserve">
-    <value>Horizontal</value>
-  </data>
-  <data name="WidgetImageOrientationVertical.Text" xml:space="preserve">
-    <value>Vertical</value>
-  </data>
-  <data name="WidgetLoadGame.Text" xml:space="preserve">
-    <value>Load game in app Widgets</value>
-  </data>
-  <data name="WidgetLoadGameMessage" xml:space="preserve">
-    <value>Game widget loaded, open the Widgets app and add the game widget from 'Add Widgets'.</value>
+  <data name="UniformFill.Text" xml:space="preserve">
+    <value>Uniform and Fill</value>
   </data>
 </root>

@@ -355,7 +355,7 @@
                 <Grid x:Name="gridTilesPrecarga" Visibility="Collapsed">
                     <ScrollViewer x:Name="svTilesPrecarga" VerticalScrollBarVisibility="Visible" Padding="0,0,15,0" HorizontalAlignment="Stretch" VerticalAlignment="Top">
                         <StackPanel Orientation="Vertical" Margin="20">
-                            <Expander x:Name="expanderTilesPrecargaDatos" Margin="0,0,0,30" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5" IsExpanded="True">
+                            <Expander Margin="0,0,0,30" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5" IsExpanded="True">
                                 <Expander.Header>
                                     <TextBlock x:Uid="Data" Foreground="{StaticResource ColorFuente}" Margin="10,0,0,0"/>
                                 </Expander.Header>
@@ -372,46 +372,319 @@
                                     <TextBox x:Name="tbTilesPrecargaEjecutable" Margin="0,0,0,20" TextWrapping="Wrap"/>
 
                                     <TextBlock x:Uid="Arguments" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
-                                    <TextBox x:Name="tbTilesPrecargaArgumentos" Margin="0,0,0,20" TextWrapping="Wrap"/>
+                                    <TextBox x:Name="tbTilesPrecargaArgumentos" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </Expander>
 
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                                        <TextBlock x:Uid="ImageSmall" Foreground="{StaticResource ColorFuente}" Margin="0,0,5,0"/>
+                            <Expander Margin="0,0,0,30" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5" IsExpanded="True">
+                                <Expander.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock x:Uid="TileSmall" Foreground="{StaticResource ColorFuente}" Margin="10,0,5,0"/>
                                         <TextBlock Text="(44x44)" Foreground="{StaticResource ColorFuente}"/>
                                     </StackPanel>
-                                    <TextBox x:Name="tbTilesPrecargaImagenPequena" Margin="0,0,0,15" TextWrapping="Wrap"/>
-                                    <Grid HorizontalAlignment="Left" Margin="0,0,0,20" BorderBrush="{StaticResource ColorFuente}" BorderThickness="1">
+                                </Expander.Header>
+
+                                <Expander.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </Expander.Background>
+
+                                <StackPanel Orientation="Vertical" Padding="10">
+                                    <TextBlock x:Uid="SourceUrl" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                    <TextBox x:Name="tbTilesPrecargaImagenPequena" Margin="0,0,0,20" TextWrapping="Wrap"/>
+                                    <Grid HorizontalAlignment="Left" Margin="0,0,0,30" BorderBrush="{StaticResource ColorFuente}" BorderThickness="1">
                                         <Grid x:Name="gridTilesPrecargaImagenPequena">
-                                            <controls:ImageEx x:Name="imagenTilesPrecargaPequena" Width="44" Height="44" IsCacheEnabled="True" EnableLazyLoading="True" Stretch="UniformToFill"/>
+                                            <controls:ImageEx x:Name="imagenTilesPrecargaPequena" Width="44" Height="44" IsCacheEnabled="True" EnableLazyLoading="True" Stretch="Uniform"/>
                                         </Grid>
                                     </Grid>
-                                    
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="Stretch" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaPequenaEstiramiento" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="None" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Fill" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Uniform" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="UniformFill" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
 
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                                        <TextBlock x:Uid="ImageMedium" Foreground="{StaticResource ColorFuente}" Margin="0,0,5,0"/>
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="OrientationHorizontal" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaPequenaOrientacionHorizontal" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Left" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Center" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Right" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Stretch2" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="OrientationVertical" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaPequenaOrientacionVertical" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Top" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Center" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Bottom" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Stretch2" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Margin="0,0,0,30" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5" IsExpanded="True">
+                                <Expander.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock x:Uid="TileMedium" Foreground="{StaticResource ColorFuente}" Margin="10,0,5,0"/>
                                         <TextBlock Text="(150x150)" Foreground="{StaticResource ColorFuente}"/>
                                     </StackPanel>
-                                    <TextBox x:Name="tbTilesPrecargaImagenMediana" Margin="0,0,0,15" TextWrapping="Wrap"/>
-                                    <Grid x:Name="gridTilesPrecargaImagenMediana" HorizontalAlignment="Left" Margin="0,0,0,20" BorderBrush="{StaticResource ColorFuente}" BorderThickness="1">
-                                        <controls:ImageEx x:Name="imagenTilesPrecargaMediana" Width="150" Height="150" IsCacheEnabled="True" EnableLazyLoading="True" Stretch="UniformToFill"/>
-                                    </Grid>
+                                </Expander.Header>
 
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                                        <TextBlock x:Uid="ImageWide" Foreground="{StaticResource ColorFuente}" Margin="0,0,5,0"/>
+                                <Expander.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </Expander.Background>
+
+                                <StackPanel Orientation="Vertical" Padding="10">
+                                    <TextBlock x:Uid="SourceUrl" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                    <TextBox x:Name="tbTilesPrecargaImagenMediana" Margin="0,0,0,20" TextWrapping="Wrap"/>
+                                    <Grid HorizontalAlignment="Left" Margin="0,0,0,30" BorderBrush="{StaticResource ColorFuente}" BorderThickness="1">
+                                        <Grid x:Name="gridTilesPrecargaImagenMediana">
+                                            <controls:ImageEx x:Name="imagenTilesPrecargaMediana" Width="150" Height="150" IsCacheEnabled="True" EnableLazyLoading="True" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                        </Grid>
+                                    </Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="Stretch" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaMedianaEstiramiento" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="None" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Fill" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Uniform" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="UniformFill" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="OrientationHorizontal" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaMedianaOrientacionHorizontal" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Left" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Center" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Right" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Stretch2" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="OrientationVertical" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaMedianaOrientacionVertical" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Top" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Center" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Bottom" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Stretch2" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Margin="0,0,0,30" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5" IsExpanded="True">
+                                <Expander.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock x:Uid="TileWide" Foreground="{StaticResource ColorFuente}" Margin="10,0,5,0"/>
                                         <TextBlock Text="(310x150)" Foreground="{StaticResource ColorFuente}"/>
                                     </StackPanel>
-                                    <TextBox x:Name="tbTilesPrecargaImagenAncha" Margin="0,0,0,15" TextWrapping="Wrap"/>
-                                    <Grid x:Name="gridTilesPrecargaImagenAncha" HorizontalAlignment="Left" Margin="0,0,0,20" BorderBrush="{StaticResource ColorFuente}" BorderThickness="1">
-                                        <controls:ImageEx x:Name="imagenTilesPrecargaAncha" Width="310" Height="150" IsCacheEnabled="True" EnableLazyLoading="True" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                                    </Grid>
+                                </Expander.Header>
 
-                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                                        <TextBlock x:Uid="ImageBig" Foreground="{StaticResource ColorFuente}" Margin="0,0,5,0"/>
+                                <Expander.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </Expander.Background>
+
+                                <StackPanel Orientation="Vertical" Padding="10">
+                                    <TextBlock x:Uid="SourceUrl" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                    <TextBox x:Name="tbTilesPrecargaImagenAncha" Margin="0,0,0,20" TextWrapping="Wrap"/>
+                                    <Grid HorizontalAlignment="Left" Margin="0,0,0,30" BorderBrush="{StaticResource ColorFuente}" BorderThickness="1">
+                                        <Grid x:Name="gridTilesPrecargaImagenAncha">
+                                            <controls:ImageEx x:Name="imagenTilesPrecargaAncha" Width="310" Height="150" IsCacheEnabled="True" EnableLazyLoading="True" Stretch="UniformToFill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                        </Grid>
+                                    </Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="Stretch" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaAnchaEstiramiento" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="None" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Fill" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Uniform" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="UniformFill" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="OrientationHorizontal" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaAnchaOrientacionHorizontal" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Left" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Center" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Right" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Stretch2" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="OrientationVertical" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaAnchaOrientacionVertical" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Top" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Center" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Bottom" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Stretch2" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Expander>
+
+                            <Expander Margin="0,0,0,30" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" RequestedTheme="Dark" CornerRadius="5" IsExpanded="True">
+                                <Expander.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock x:Uid="TileBig" Foreground="{StaticResource ColorFuente}" Margin="10,0,5,0"/>
                                         <TextBlock Text="(310x310)" Foreground="{StaticResource ColorFuente}"/>
                                     </StackPanel>
-                                    <TextBox x:Name="tbTilesPrecargaImagenGrande" Margin="0,0,0,15" TextWrapping="Wrap"/>
-                                    <Grid x:Name="gridTilesPrecargaImagenGrande" HorizontalAlignment="Left" BorderBrush="{StaticResource ColorFuente}" BorderThickness="1">
-                                        <controls:ImageEx x:Name="imagenTilesPrecargaGrande" Width="310" Height="310" IsCacheEnabled="True" EnableLazyLoading="True" Stretch="Uniform" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                </Expander.Header>
+
+                                <Expander.Background>
+                                    <SolidColorBrush Color="{StaticResource ColorPrimario}" Opacity="0.6"/>
+                                </Expander.Background>
+
+                                <StackPanel Orientation="Vertical" Padding="10">
+                                    <TextBlock x:Uid="SourceUrl" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                    <TextBox x:Name="tbTilesPrecargaImagenGrande" Margin="0,0,0,20" TextWrapping="Wrap"/>
+                                    <Grid HorizontalAlignment="Left" Margin="0,0,0,30" BorderBrush="{StaticResource ColorFuente}" BorderThickness="1">
+                                        <Grid x:Name="gridTilesPrecargaImagenGrande">
+                                            <controls:ImageEx x:Name="imagenTilesPrecargaGrande" Width="310" Height="310" IsCacheEnabled="True" EnableLazyLoading="True" Stretch="UniformToFill" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                        </Grid>
                                     </Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="Stretch" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaGrandeEstiramiento" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="None" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Fill" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Uniform" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="UniformFill" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="OrientationHorizontal" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaGrandeOrientacionHorizontal" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Left" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Center" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Right" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Stretch2" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+
+                                        <StackPanel Orientation="Vertical" Margin="0,0,40,0">
+                                            <TextBlock x:Uid="OrientationVertical" Foreground="{StaticResource ColorFuente}" Margin="0,0,0,10"/>
+                                            <interfaz:ComboBox2 x:Name="cbTilesPrecargaGrandeOrientacionVertical" RequestedTheme="Dark" CornerRadius="5">
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Top" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Center" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Bottom" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                                <ComboBoxItem>
+                                                    <TextBlock x:Uid="Stretch2" Foreground="{StaticResource ColorFuente}"/>
+                                                </ComboBoxItem>
+                                            </interfaz:ComboBox2>
+                                        </StackPanel>
+                                    </StackPanel>
                                 </StackPanel>
                             </Expander>
 
@@ -423,7 +696,7 @@
                                 <interfaz:Button2 x:Name="botonTilesCargarJuego" Background="{StaticResource ColorPrimario}" RequestedTheme="Light" Padding="15" CornerRadius="5">
                                     <interfaz:Button2.Content>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock x:Uid="TilesAddGame" Foreground="{StaticResource ColorFuente}"/>
+                                            <TextBlock x:Uid="TileAddGame" Foreground="{StaticResource ColorFuente}"/>
                                         </StackPanel>
                                     </interfaz:Button2.Content>
                                 </interfaz:Button2>

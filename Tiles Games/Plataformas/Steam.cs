@@ -281,10 +281,10 @@ namespace Plataformas
 
                             if (json != null)
                             {
-                                //WidgetPrecarga.PrecargarJuego(json.datos.titulo,
-                                //    "steam://rungameid/" + id + "/", null,
-                                //    dominioImagenes + "/steam/apps/" + id + "/header.jpg",
-                                //    dominioImagenes + "/steam/apps/" + id + "/library_600x900.jpg");
+                                Tiles.PrecargarJuego(json.datos.titulo,
+                                    "steam://rungameid/" + id + "/", null, id, "steam",
+                                    dominioImagenes + "/steam/apps/" + id + "/header.jpg",
+                                    dominioImagenes + "/steam/apps/" + id + "/library_600x900.jpg");
 
                                 tb.Text = string.Empty;
                             }

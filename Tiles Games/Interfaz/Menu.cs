@@ -20,25 +20,25 @@ namespace Interfaz
 
             //--------------------------------------------------------------------
 
-            FontAwesome icono1 = new FontAwesome
-            {
-                Icon = EFontAwesomeIcon.Solid_ThumbsUp,
-                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])
-            };
+            //FontAwesome icono1 = new FontAwesome
+            //{
+            //    Icon = EFontAwesomeIcon.Solid_ThumbsUp,
+            //    Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])
+            //};
 
-            MenuFlyoutItem2 item1 = new MenuFlyoutItem2
-            {
-                Icon = icono1,
-                Text = recursos.GetString("MenuRate"),
-                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
-                RequestedTheme = ElementTheme.Dark
-            };
+            //MenuFlyoutItem2 item1 = new MenuFlyoutItem2
+            //{
+            //    Icon = icono1,
+            //    Text = recursos.GetString("MenuRate"),
+            //    Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+            //    RequestedTheme = ElementTheme.Dark
+            //};
 
-            item1.Click += BotonAbrirVotar;
-            item1.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
-            item1.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
+            //item1.Click += BotonAbrirVotar;
+            //item1.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            //item1.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
 
-            ObjetosVentana.menuItemMenu.Items.Add(item1);
+            //ObjetosVentana.menuItemMenu.Items.Add(item1);
 
             FontAwesome icono2 = new FontAwesome
             {

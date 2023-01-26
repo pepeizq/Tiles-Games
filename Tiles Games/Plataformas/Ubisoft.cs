@@ -117,7 +117,7 @@ namespace Plataformas
                                             }
                                   
                                             listaJuegos.Add(new UbisoftJuego(juegoJson.nombre, "uplay://launch/" + id + "/0",
-                                                                    imagenPequeña, imagenGrande));
+                                                                    imagenPequeña, imagenGrande, juegoJson.idSteam));
                                             break;
                                         }
                                     }
@@ -224,6 +224,10 @@ namespace Plataformas
             //WidgetPrecarga.PrecargarJuego(juego.nombre,
             //        juego.ejecutable, null,
             //        juego.imagenPequeña, juego.imagenGrande);
+            Tiles.PrecargarJuego(juego.nombre,
+                    juego.ejecutable, null, juego.idSteam, "ubisoft",
+                    juego.imagenPequeña,
+                    juego.imagenGrande);
         }
     }
 
@@ -233,13 +237,15 @@ namespace Plataformas
         public string ejecutable { get; set; }
         public string imagenPequeña { get; set; }
         public string imagenGrande { get; set; }
+        public string idSteam { get; set; }
 
-        public UbisoftJuego(string Nombre, string Ejecutable, string ImagenPequeña, string ImagenGrande)
+        public UbisoftJuego(string Nombre, string Ejecutable, string ImagenPequeña, string ImagenGrande, string IdSteam)
         {
             nombre = Nombre;
             ejecutable = Ejecutable;
             imagenPequeña = ImagenPequeña;
             imagenGrande = ImagenGrande;
+            idSteam = IdSteam;
         }
     }
 }

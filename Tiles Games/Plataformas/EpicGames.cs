@@ -130,7 +130,7 @@ namespace Plataformas
                                             }
 
                                             listaJuegos.Add(new EpicGamesJuego(juegoJson.nombre, "com.epicgames.launcher://apps/" + id + "?action=launch&silent=true",
-                                                                               imagenPequeña, imagenGrande));
+                                                                               imagenPequeña, imagenGrande, juegoJson.idSteam));
                                             break;
                                         }
                                     }
@@ -234,9 +234,10 @@ namespace Plataformas
             Button boton = sender as Button;
             EpicGamesJuego juego = boton.Tag as EpicGamesJuego;
 
-            //WidgetPrecarga.PrecargarJuego(juego.nombre,
-            //        juego.ejecutable, null,
-            //        juego.imagenPequeña, juego.imagenGrande);
+            Tiles.PrecargarJuego(juego.nombre,
+                    juego.ejecutable, null, juego.idSteam, "epicgames",
+                    juego.imagenPequeña,
+                    juego.imagenGrande);
         }
     }
 
@@ -246,13 +247,15 @@ namespace Plataformas
         public string ejecutable { get; set; }
         public string imagenPequeña { get; set; }
         public string imagenGrande { get; set; }
+        public string idSteam { get; set; }
 
-        public EpicGamesJuego(string Nombre, string Ejecutable, string ImagenPequeña, string ImagenGrande)
+        public EpicGamesJuego(string Nombre, string Ejecutable, string ImagenPequeña, string ImagenGrande, string IdSteam)
         {
             nombre = Nombre;
             ejecutable = Ejecutable;
             imagenPequeña = ImagenPequeña;
             imagenGrande = ImagenGrande;
+            idSteam = IdSteam;
         }
     }
 }

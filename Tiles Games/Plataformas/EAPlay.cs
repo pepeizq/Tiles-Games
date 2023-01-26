@@ -236,10 +236,10 @@ namespace Plataformas
             Button boton = sender as Button;
             EAPlayJuego juego = boton.Tag as EAPlayJuego;
 
-            //WidgetPrecarga.PrecargarJuego(juego.nombre,
-            //        juego.ejecutable, string.Empty,
-            //        string.Empty,
-            //        juego.imagen);
+            Tiles.PrecargarJuego(juego.nombre,
+                    juego.ejecutable, null, null, "eaplay",
+                    string.Empty,
+                    juego.imagen);
         }
     }
 

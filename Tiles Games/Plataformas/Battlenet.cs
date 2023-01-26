@@ -77,7 +77,7 @@ namespace Plataformas
 
                                     listaJuegos.Add(new BattlenetJuego(juegoJson.nombre, 
                                                         Strings.ChrW(34).ToString() + rutaEjecutable + Strings.ChrW(34).ToString() + " --exec=" + Strings.ChrW(34).ToString() + "launch " + juegoJson.idBattlenet + Strings.Chr(34).ToString(),
-                                                        imagenPequeña, imagenGrande));
+                                                        imagenPequeña, imagenGrande, juegoJson.idSteam));
                                 }
                             }
                         }
@@ -151,9 +151,10 @@ namespace Plataformas
             Button boton = sender as Button;
             BattlenetJuego juego = boton.Tag as BattlenetJuego;
 
-            //WidgetPrecarga.PrecargarJuego(juego.nombre,
-            //        juego.ejecutable, null,
-            //        juego.imagenPequeña, juego.imagenGrande);
+            Tiles.PrecargarJuego(juego.nombre,
+                    juego.ejecutable, null, juego.idSteam, "battlenet",
+                    juego.imagenPequeña,
+                    juego.imagenGrande);
         }
     }
 
@@ -163,13 +164,15 @@ namespace Plataformas
         public string ejecutable { get; set; }
         public string imagenPequeña { get; set; }
         public string imagenGrande { get; set; }
+        public string idSteam { get; set; }
 
-        public BattlenetJuego(string Nombre, string Ejecutable, string ImagenPequeña, string ImagenGrande)
+        public BattlenetJuego(string Nombre, string Ejecutable, string ImagenPequeña, string ImagenGrande, string IdSteam)
         {
             nombre = Nombre;
             ejecutable = Ejecutable;
             imagenPequeña = ImagenPequeña;
             imagenGrande = ImagenGrande;
+            idSteam = IdSteam; 
         }
     }
 }

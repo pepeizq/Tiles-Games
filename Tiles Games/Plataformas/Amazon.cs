@@ -154,9 +154,10 @@ namespace Plataformas
             Button boton = sender as Button;
             AmazonJuego juego = boton.Tag as AmazonJuego;
 
-            //WidgetPrecarga.PrecargarJuego(juego.nombre,
-            //        juego.ejecutable, null,
-            //        string.Empty, juego.imagenGrande);
+            Tiles.PrecargarJuego(juego.nombre,
+                    juego.ejecutable, null, null, "amazon",
+                    string.Empty,
+                    juego.imagenGrande);
         }
     }
 

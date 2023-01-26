@@ -124,7 +124,6 @@ namespace Tiles_Games
             //-------------------------------------------------------------------
 
             ObjetosVentana.svTilesPrecarga = svTilesPrecarga;
-            ObjetosVentana.expanderTilesPrecargaDatos = expanderTilesPrecargaDatos;
             ObjetosVentana.tbTilesPrecargaTitulo = tbTilesPrecargaTitulo;
             ObjetosVentana.tbTilesPrecargaEjecutable = tbTilesPrecargaEjecutable;
             ObjetosVentana.tbTilesPrecargaArgumentos = tbTilesPrecargaArgumentos;
@@ -140,7 +139,18 @@ namespace Tiles_Games
             ObjetosVentana.imagenTilesPrecargaMediana = imagenTilesPrecargaMediana;
             ObjetosVentana.imagenTilesPrecargaAncha = imagenTilesPrecargaAncha;
             ObjetosVentana.imagenTilesPrecargaGrande = imagenTilesPrecargaGrande;
-
+            ObjetosVentana.cbTilesPrecargaPequeñaEstiramiento = cbTilesPrecargaPequenaEstiramiento;
+            ObjetosVentana.cbTilesPrecargaMedianaEstiramiento = cbTilesPrecargaMedianaEstiramiento;
+            ObjetosVentana.cbTilesPrecargaAnchaEstiramiento = cbTilesPrecargaAnchaEstiramiento;
+            ObjetosVentana.cbTilesPrecargaGrandeEstiramiento = cbTilesPrecargaGrandeEstiramiento;
+            ObjetosVentana.cbTilesPrecargaPequeñaOrientacionHorizontal = cbTilesPrecargaPequenaOrientacionHorizontal;
+            ObjetosVentana.cbTilesPrecargaMedianaOrientacionHorizontal = cbTilesPrecargaMedianaOrientacionHorizontal;
+            ObjetosVentana.cbTilesPrecargaAnchaOrientacionHorizontal = cbTilesPrecargaAnchaOrientacionHorizontal;
+            ObjetosVentana.cbTilesPrecargaGrandeOrientacionHorizontal = cbTilesPrecargaGrandeOrientacionHorizontal;
+            ObjetosVentana.cbTilesPrecargaPequeñaOrientacionVertical = cbTilesPrecargaPequenaOrientacionVertical;
+            ObjetosVentana.cbTilesPrecargaMedianaOrientacionVertical = cbTilesPrecargaMedianaOrientacionVertical;
+            ObjetosVentana.cbTilesPrecargaAnchaOrientacionVertical = cbTilesPrecargaAnchaOrientacionVertical;
+            ObjetosVentana.cbTilesPrecargaGrandeOrientacionVertical = cbTilesPrecargaGrandeOrientacionVertical;
             ObjetosVentana.botonTilesCargarJuego = botonTilesCargarJuego;
 
             //-------------------------------------------------------------------
@@ -245,7 +255,6 @@ namespace Tiles_Games
             //-------------------------------------------------------------------
 
             public static ScrollViewer svTilesPrecarga { get; set; }
-            public static Microsoft.UI.Xaml.Controls.Expander expanderTilesPrecargaDatos { get; set; }
             public static TextBox tbTilesPrecargaTitulo { get; set; }
             public static TextBox tbTilesPrecargaEjecutable { get; set; }
             public static TextBox tbTilesPrecargaArgumentos { get; set; }
@@ -261,6 +270,18 @@ namespace Tiles_Games
             public static ImageEx imagenTilesPrecargaMediana { get; set; }
             public static ImageEx imagenTilesPrecargaAncha { get; set; }
             public static ImageEx imagenTilesPrecargaGrande { get; set; }
+            public static ComboBox cbTilesPrecargaPequeñaEstiramiento { get; set; }
+            public static ComboBox cbTilesPrecargaMedianaEstiramiento { get; set; }
+            public static ComboBox cbTilesPrecargaAnchaEstiramiento { get; set; }
+            public static ComboBox cbTilesPrecargaGrandeEstiramiento { get; set; }
+            public static ComboBox cbTilesPrecargaPequeñaOrientacionHorizontal { get; set; }
+            public static ComboBox cbTilesPrecargaMedianaOrientacionHorizontal { get; set; }
+            public static ComboBox cbTilesPrecargaAnchaOrientacionHorizontal { get; set; }
+            public static ComboBox cbTilesPrecargaGrandeOrientacionHorizontal { get; set; }
+            public static ComboBox cbTilesPrecargaPequeñaOrientacionVertical { get; set; }
+            public static ComboBox cbTilesPrecargaMedianaOrientacionVertical { get; set; }
+            public static ComboBox cbTilesPrecargaAnchaOrientacionVertical { get; set; }
+            public static ComboBox cbTilesPrecargaGrandeOrientacionVertical { get; set; }
             public static Button botonTilesCargarJuego { get; set; }
 
             //-------------------------------------------------------------------
@@ -415,7 +436,7 @@ namespace Tiles_Games
                             {
                                 Pestañas.Visibilidad(gridTilesPrecarga, true, null, false);
                                 BarraTitulo.CambiarTitulo(null);
-                                //WidgetPrecarga.PrecargarJuego(null, null, null, null, null);
+                                Tiles.PrecargarJuego(null, null, null, null, null, null, null);
                             }
                         }
                     }
@@ -490,7 +511,7 @@ namespace Tiles_Games
         {
             Pestañas.Visibilidad(gridTilesPrecarga, true, null, false);
             BarraTitulo.CambiarTitulo(null);
-            //WidgetPrecarga.PrecargarJuego(null, null, null, null, null);
+            Tiles.PrecargarJuego(null, null, null, null, null, null, null);
         }
     }
 }

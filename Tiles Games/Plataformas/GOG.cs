@@ -114,10 +114,10 @@ namespace Plataformas
             Button boton = sender as Button;
             GOGJuego juego = boton.Tag as GOGJuego;
 
-            //WidgetPrecarga.PrecargarJuego(juego.nombre,
-            //        juego.ejecutable, juego.argumentos,
-            //        juego.imagen,
-            //        string.Empty);
+            Tiles.PrecargarJuego(juego.nombre,
+                    juego.ejecutable, juego.argumentos, null, "gog",
+                    juego.imagen,
+                    string.Empty);
         }
     }
 

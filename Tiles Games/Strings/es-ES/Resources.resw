@@ -124,22 +124,13 @@
     <value>Argumentos</value>
   </data>
   <data name="BattlenetInstalledGamesMessage.Text" xml:space="preserve">
-    <value>Recuerda, para ejecutar el juego desde Widgets debes tenerlo instalado en la aplicación de Battle.net.</value>
+    <value>Recuerda, para ejecutar el juego desde una tile debes tenerlo instalado en la aplicación de Battle.net.</value>
   </data>
   <data name="Bottom.Text" xml:space="preserve">
     <value>Abajo</value>
   </data>
   <data name="Center.Text" xml:space="preserve">
     <value>Centrada</value>
-  </data>
-  <data name="ChooseImage.Text" xml:space="preserve">
-    <value>Elige el tipo de imagen antes de precargar el Widget:</value>
-  </data>
-  <data name="ChooseImageBig" xml:space="preserve">
-    <value>La imagen grande se adapta mejor a los widgets de tamaño mediano y grande.</value>
-  </data>
-  <data name="ChooseImageSmall" xml:space="preserve">
-    <value>La imagen pequeña se adapta mejor al widget de tamaño pequeño.</value>
   </data>
   <data name="Contact.Text" xml:space="preserve">
     <value>Contactar</value>
@@ -152,6 +143,9 @@
   </data>
   <data name="Executable.Text" xml:space="preserve">
     <value>Ejecutable</value>
+  </data>
+  <data name="Fill.Text" xml:space="preserve">
+    <value>Rellenar</value>
   </data>
   <data name="ImageBig.Text" xml:space="preserve">
     <value>Imagen Grande</value>
@@ -192,6 +186,9 @@
   <data name="NoGamesDetected.Text" xml:space="preserve">
     <value>Ningún juego detectado</value>
   </data>
+  <data name="None.Text" xml:space="preserve">
+    <value>Ninguno</value>
+  </data>
   <data name="Options" xml:space="preserve">
     <value>Opciones</value>
   </data>
@@ -222,14 +219,23 @@
   <data name="OptionsLanguageInfo.Text" xml:space="preserve">
     <value>Selecciona el idioma de la aplicación, es necesario un reinicio en la aplicación para efectuar el cambio.</value>
   </data>
+  <data name="OrientationHorizontal.Text" xml:space="preserve">
+    <value>Orientación Horizontal</value>
+  </data>
+  <data name="OrientationVertical.Text" xml:space="preserve">
+    <value>Orientación Vertical</value>
+  </data>
   <data name="PresentationMessage.Text" xml:space="preserve">
-    <value>Selecciona la plataforma donde tienes el juego para añadir como widget:</value>
+    <value>Selecciona la plataforma donde tienes el juego para añadir como tile:</value>
   </data>
   <data name="Right.Text" xml:space="preserve">
     <value>Derecha</value>
   </data>
   <data name="SelectFolderInstalledGames.Text" xml:space="preserve">
     <value>Selecciona la carpeta donde tengas instalados los juegos:</value>
+  </data>
+  <data name="SourceUrl.Text" xml:space="preserve">
+    <value>Enlace Imagen:</value>
   </data>
   <data name="SteamAnyGames.Text" xml:space="preserve">
     <value>Cualquier juego</value>
@@ -238,15 +244,31 @@
     <value>Introduce el enlace de cualquier juego en Steam:</value>
   </data>
   <data name="SteamAnyGamesMessage2.Text" xml:space="preserve">
-    <value>Recuerda, para ejecutarlo desde Widgets debes tener el juego en Steam.</value>
+    <value>Recuerda, para ejecutar el juego desde una tile debes tener el juego en Steam.</value>
   </data>
   <data name="SteamInstalledGames.Text" xml:space="preserve">
     <value>Juegos instalados</value>
   </data>
-  <data name="StoreDescription" xml:space="preserve">
-    <value>Añade widgets para tus juegos de de Steam en la app Widgets de Windows 11.
-
-Una vez añadido el widget del juego, puedes ejecutarlo desde la app de Widgets.</value>
+  <data name="Stretch.Text" xml:space="preserve">
+    <value>Estiramiento</value>
+  </data>
+  <data name="Stretch2.Text" xml:space="preserve">
+    <value>Estirada</value>
+  </data>
+  <data name="TileAddGame.Text" xml:space="preserve">
+    <value>Añadir Tile del Juego</value>
+  </data>
+  <data name="TileBig.Text" xml:space="preserve">
+    <value>Tile Grande</value>
+  </data>
+  <data name="TileMedium.Text" xml:space="preserve">
+    <value>Tile Mediana</value>
+  </data>
+  <data name="TileSmall.Text" xml:space="preserve">
+    <value>Tile Pequeña</value>
+  </data>
+  <data name="TileWide.Text" xml:space="preserve">
+    <value>Tile Ancha</value>
   </data>
   <data name="Title.Text" xml:space="preserve">
     <value>Título</value>
@@ -254,25 +276,10 @@ Una vez añadido el widget del juego, puedes ejecutarlo desde la app de Widgets.
   <data name="Top.Text" xml:space="preserve">
     <value>Arriba</value>
   </data>
-  <data name="TrialBuyApp.Text" xml:space="preserve">
-    <value>Comprar Aplicación</value>
+  <data name="Uniform.Text" xml:space="preserve">
+    <value>Uniforme</value>
   </data>
-  <data name="TrialMessage.Text" xml:space="preserve">
-    <value>Estás usando una version trial de la aplicación, solo podrás añadir 1 widget.</value>
-  </data>
-  <data name="WidgetImageOrientation.Text" xml:space="preserve">
-    <value>Orientación de la imagen en el Widget:</value>
-  </data>
-  <data name="WidgetImageOrientationHorizontal.Text" xml:space="preserve">
-    <value>Horizontal</value>
-  </data>
-  <data name="WidgetImageOrientationVertical.Text" xml:space="preserve">
-    <value>Vertical</value>
-  </data>
-  <data name="WidgetLoadGame.Text" xml:space="preserve">
-    <value>Cargar juego en la app Widgets</value>
-  </data>
-  <data name="WidgetLoadGameMessage" xml:space="preserve">
-    <value>Cargado widget del juego, abre la app Widgets y añade el widget del juego desde 'Añadir Widgets'.</value>
+  <data name="UniformFill.Text" xml:space="preserve">
+    <value>Uniforme y Rellenar</value>
   </data>
 </root>

@@ -18,26 +18,9 @@
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundle>Never</AppxBundle>
-    <AppInstallerUri>https://pepeizqapps.com/descargas/tilesgames/</AppInstallerUri>
+    <AppInstallerUri>https://pepeizqapps.com/</AppInstallerUri>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Remove="Assets\tiles_logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Assets\Logos2\BadgeLogo.scale-100.png" />
-    <None Remove="Assets\Logos2\BadgeLogo.scale-125.png" />
-    <None Remove="Assets\Logos2\BadgeLogo.scale-150.png" />
-    <None Remove="Assets\Logos2\BadgeLogo.scale-200.png" />
-    <None Remove="Assets\Logos2\BadgeLogo.scale-400.png" />
-    <None Remove="Assets\Logos2\StoreLogo.scale-100.png" />
-    <None Remove="Assets\Logos2\StoreLogo.scale-125.png" />
-    <None Remove="Assets\Logos2\StoreLogo.scale-150.png" />
-    <None Remove="Assets\Logos2\StoreLogo.scale-200.png" />
-    <None Remove="Assets\Logos2\StoreLogo.scale-400.png" />
-    <None Remove="Plataformas\Ubisoft.cs~RF3398dfec.TMP" />
-    <None Remove="Strings\en-US\j3bmoxpo.1n1~" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.WinUI.Notifications" Version="7.1.2" />

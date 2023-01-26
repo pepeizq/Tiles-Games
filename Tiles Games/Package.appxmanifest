@@ -9,11 +9,11 @@
   <Identity
     Name="504feed5-31bb-43e8-a14c-1ab38382a442"
     Publisher="CN=C91088FC-231C-4E13-86D1-5F9658173DA7"
-    Version="1.0.0.0" />
+    Version="1.0.1.0" />
 
   <Properties>
-    <DisplayName>Tiles Games</DisplayName>
-    <PublisherDisplayName>pepei</PublisherDisplayName>
+    <DisplayName>pepeizq&apos;s Tiles for Games</DisplayName>
+    <PublisherDisplayName>pepeizq</PublisherDisplayName>
     <Logo>Assets\Logos2\StoreLogo.png</Logo>
   </Properties>
 
@@ -31,7 +31,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Tiles Games"
+        DisplayName="pepeizq&apos;s Tiles for Games"
         Description="https://pepeizqapps.com/"
         BackgroundColor="#171a21"
         Square150x150Logo="Assets\Logos2\Square150x150Logo.png"
