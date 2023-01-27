@@ -441,7 +441,7 @@ namespace Interfaz
                 enlace = enlace + " " + ObjetosVentana.tbTilesPrecargaArgumentos.Text;
             }
 
-            SecondaryTile nuevaTile = new SecondaryTile(id, titulo, enlace, new Uri("ms-appdata:///local/" + id + "ancha.png"), Windows.UI.StartScreen.TileSize.Wide310x150);
+            SecondaryTile nuevaTile = new SecondaryTile(id, titulo, enlace, new Uri("ms-appdata:///local/" + id + "ancha.png"), TileSize.Wide310x150);
             nuevaTile.VisualElements.Square44x44Logo = new Uri("ms-appdata:///local/" + id + "pequena.png");
             nuevaTile.VisualElements.Square30x30Logo = new Uri("ms-appdata:///local/" + id + "pequena.png");
             nuevaTile.VisualElements.Square70x70Logo = new Uri("ms-appdata:///local/" + id + "pequena.png");
@@ -449,7 +449,7 @@ namespace Interfaz
             nuevaTile.VisualElements.Square150x150Logo = new Uri("ms-appdata:///local/" + id + "mediana.png");
             nuevaTile.VisualElements.Wide310x150Logo = new Uri("ms-appdata:///local/" + id + "ancha.png");
             nuevaTile.VisualElements.Square310x310Logo = new Uri("ms-appdata:///local/" + id + "grande.png");
-
+  
             InitializeWithWindow.Initialize(nuevaTile, WindowNative.GetWindowHandle(ObjetosVentana.ventana));
 
             await nuevaTile.RequestCreateAsync();
@@ -480,6 +480,8 @@ namespace Interfaz
             ObjetosVentana.cbTilesPrecargaMedianaOrientacionVertical.IsEnabled = estado;
             ObjetosVentana.cbTilesPrecargaAnchaOrientacionVertical.IsEnabled = estado;
             ObjetosVentana.cbTilesPrecargaGrandeOrientacionVertical.IsEnabled = estado;
+
+            ObjetosVentana.botonTilesCargarJuego.IsEnabled = estado;
         }
     }
 }
