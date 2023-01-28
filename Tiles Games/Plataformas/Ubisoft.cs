@@ -221,9 +221,6 @@ namespace Plataformas
             Button boton = sender as Button;
             UbisoftJuego juego = boton.Tag as UbisoftJuego;
 
-            //WidgetPrecarga.PrecargarJuego(juego.nombre,
-            //        juego.ejecutable, null,
-            //        juego.imagenPequeña, juego.imagenGrande);
             Tiles.PrecargarJuego(juego.nombre,
                     juego.ejecutable, null, juego.idSteam, "ubisoft",
                     juego.imagenPequeña,
