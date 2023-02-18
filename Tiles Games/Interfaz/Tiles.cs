@@ -1,10 +1,13 @@
-﻿using CommunityToolkit.WinUI.UI.Controls;
+﻿using CommunityToolkit.WinUI.Notifications;
+using CommunityToolkit.WinUI.UI.Controls;
 using Herramientas;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.VisualBasic;
 using System;
+using Windows.Storage;
+using Windows.UI.Notifications;
 using Windows.UI.StartScreen;
 using WinRT.Interop;
 using static Tiles_Games.MainWindow;
@@ -441,7 +444,7 @@ namespace Interfaz
                 enlace = enlace + " " + ObjetosVentana.tbTilesPrecargaArgumentos.Text;
             }
 
-            SecondaryTile nuevaTile = new SecondaryTile(id, titulo, enlace, new Uri("ms-appdata:///local/" + id + "ancha.png"), TileSize.Wide310x150);
+            SecondaryTile nuevaTile = new SecondaryTile(id, titulo, enlace, new Uri("ms-appdata:///local/" + id + "ancha.png"), Windows.UI.StartScreen.TileSize.Wide310x150);
             nuevaTile.VisualElements.Square44x44Logo = new Uri("ms-appdata:///local/" + id + "pequena.png");
             nuevaTile.VisualElements.Square30x30Logo = new Uri("ms-appdata:///local/" + id + "pequena.png");
             nuevaTile.VisualElements.Square70x70Logo = new Uri("ms-appdata:///local/" + id + "pequena.png");
@@ -453,6 +456,87 @@ namespace Interfaz
             InitializeWithWindow.Initialize(nuevaTile, WindowNative.GetWindowHandle(ObjetosVentana.ventana));
 
             await nuevaTile.RequestCreateAsync();
+
+            //-----------------------------------------------
+
+            TileBindingContentAdaptive contenidoMediano = new TileBindingContentAdaptive();
+
+            TileBackgroundImage fondoImagenMediano = new TileBackgroundImage
+            {
+                Source = "ms-appdata:///local/" + id + "mediana.png",
+                HintCrop = (TileBackgroundImageCrop)AdaptiveImageCrop.Default
+            };
+
+            contenidoMediano = new TileBindingContentAdaptive
+            {
+                BackgroundImage = fondoImagenMediano
+            };
+
+            TileBinding tileMediano = new TileBinding {
+                Content = contenidoMediano
+            };
+
+            //-----------------------------------------------
+
+            TileBindingContentAdaptive contenidoAncho = new TileBindingContentAdaptive();
+
+            TileBackgroundImage fondoImagenAncha = new TileBackgroundImage 
+            {
+                Source = "ms-appdata:///local/" + id + "ancha.png",
+                HintCrop = (TileBackgroundImageCrop)AdaptiveImageCrop.Default
+            };
+
+            contenidoAncho = new TileBindingContentAdaptive 
+            {
+                BackgroundImage = fondoImagenAncha
+            };
+
+            TileBinding tileAncha = new TileBinding 
+            {
+                Content = contenidoAncho
+            };
+
+            //-----------------------------------------------
+
+            TileBindingContentAdaptive contenidoGrande = new TileBindingContentAdaptive();
+
+            TileBackgroundImage fondoImagenGrande = new TileBackgroundImage 
+            {
+                Source = "ms-appdata:///local/" + id + "grande.png",
+                HintCrop = (TileBackgroundImageCrop)AdaptiveImageCrop.Default
+            };
+
+            contenidoGrande = new TileBindingContentAdaptive 
+            {
+                BackgroundImage = fondoImagenGrande
+            };
+
+            TileBinding tileGrande = new TileBinding 
+            {
+                Content = contenidoGrande
+            };
+
+            //-----------------------------------------------
+
+            TileVisual visual = new TileVisual
+            {
+                TileMedium = tileMediano,
+                TileWide = tileAncha,
+                TileLarge = tileGrande
+            };
+
+            TileContent contenido = new TileContent
+            {
+                Visual = visual
+            };
+
+            TileNotification notificacion = new TileNotification(contenido.GetXml());
+
+            try
+            {
+                TileUpdateManager.CreateTileUpdaterForSecondaryTile(id).Update(notificacion);
+            }
+            catch { }
 
             ActivarDesactivar(true);
         }

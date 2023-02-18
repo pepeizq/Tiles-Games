@@ -9,7 +9,7 @@
   <Identity
     Name="504feed5-31bb-43e8-a14c-1ab38382a442"
     Publisher="CN=C91088FC-231C-4E13-86D1-5F9658173DA7"
-    Version="1.0.2.0" />
+    Version="1.0.3.0" />
 
   <Properties>
     <DisplayName>pepeizq&apos;s Tiles for Games</DisplayName>
