@@ -1,4 +1,5 @@
 using CommunityToolkit.WinUI.UI.Controls;
+using FontAwesome6.Fonts;
 using Interfaz;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -17,6 +18,7 @@ namespace Tiles_Games
 
             BarraTitulo.Generar(this);
             BarraTitulo.CambiarTitulo(null);
+            Cerrar.Cargar();
             Pestañas.Cargar();
             ScrollViewers.Cargar();
             Interfaz.Menu.Cargar();
@@ -40,6 +42,15 @@ namespace Tiles_Games
             ObjetosVentana.menuItemMenu = menuItemMenu;
             ObjetosVentana.nvItemOpciones = nvItemOpciones;
             ObjetosVentana.nvItemSubirArriba = nvItemSubirArriba;
+            ObjetosVentana.gridCierre = gridCierre;
+
+            //-------------------------------------------------------------------
+
+            ObjetosVentana.botonCerrarAppSi = botonCerrarAppSi;
+            ObjetosVentana.botonCerrarAppNo = botonCerrarAppNo;
+            ObjetosVentana.iconoCerrarAppAzar = iconoCerrarAppAzar;
+            ObjetosVentana.tbCerrarAppAzar = tbCerrarAppAzar;
+            ObjetosVentana.botonCerrarAppAzar = botonCerrarAppAzar;
 
             //-------------------------------------------------------------------
 
@@ -98,7 +109,8 @@ namespace Tiles_Games
 
             //-------------------------------------------------------------------
 
-            ObjetosVentana.spBattlenetJuegosInstaladosMensaje = spBattlenetJuegosInstaladosMensaje;
+            ObjetosVentana.gridBattlenetMensajeSiJuegos = gridBattlenetMensajeSiJuegos;
+            ObjetosVentana.botonBattlenetCerrarMensajeSiJuegos = botonBattlenetCerrarMensajeSiJuegos;
             ObjetosVentana.svBattlenetJuegosInstalados = svBattlenetJuegosInstalados;
             ObjetosVentana.prBattlenetJuegosInstalados = prBattlenetJuegosInstalados;
             ObjetosVentana.gvBattlenetJuegosInstalados = gvBattlenetJuegosInstalados;
@@ -123,7 +135,13 @@ namespace Tiles_Games
 
             //-------------------------------------------------------------------
 
+            ObjetosVentana.spTilesBotones = spTilesBotones;
             ObjetosVentana.svTilesPrecarga = svTilesPrecarga;
+            ObjetosVentana.spTilesPestañas = spTilesPestanas;
+            ObjetosVentana.iconoTilesPrecargaPequeña = iconoTilesPrecargaPequena;
+            ObjetosVentana.iconoTilesPrecargaMediana = iconoTilesPrecargaMediana;
+            ObjetosVentana.iconoTilesPrecargaAncha = iconoTilesPrecargaAncha;
+            ObjetosVentana.iconoTilesPrecargaGrande = iconoTilesPrecargaGrande;
             ObjetosVentana.tbTilesPrecargaTitulo = tbTilesPrecargaTitulo;
             ObjetosVentana.tbTilesPrecargaEjecutable = tbTilesPrecargaEjecutable;
             ObjetosVentana.tbTilesPrecargaArgumentos = tbTilesPrecargaArgumentos;
@@ -139,6 +157,10 @@ namespace Tiles_Games
             ObjetosVentana.imagenTilesPrecargaMediana = imagenTilesPrecargaMediana;
             ObjetosVentana.imagenTilesPrecargaAncha = imagenTilesPrecargaAncha;
             ObjetosVentana.imagenTilesPrecargaGrande = imagenTilesPrecargaGrande;
+            ObjetosVentana.imagenTilesPrecargaPequeña2 = imagenTilesPrecargaPequena2;
+            ObjetosVentana.imagenTilesPrecargaMediana2 = imagenTilesPrecargaMediana2;
+            ObjetosVentana.imagenTilesPrecargaAncha2 = imagenTilesPrecargaAncha2;
+            ObjetosVentana.imagenTilesPrecargaGrande2 = imagenTilesPrecargaGrande2;
             ObjetosVentana.cbTilesPrecargaPequeñaEstiramiento = cbTilesPrecargaPequenaEstiramiento;
             ObjetosVentana.cbTilesPrecargaMedianaEstiramiento = cbTilesPrecargaMedianaEstiramiento;
             ObjetosVentana.cbTilesPrecargaAnchaEstiramiento = cbTilesPrecargaAnchaEstiramiento;
@@ -155,7 +177,9 @@ namespace Tiles_Games
 
             //-------------------------------------------------------------------
 
+            ObjetosVentana.spOpcionesBotones = spOpcionesBotones;
             ObjetosVentana.svOpciones = svOpciones;
+            ObjetosVentana.spOpcionesPestañas = spOpcionesPestanas;
             ObjetosVentana.cbOpcionesIdioma = cbOpcionesIdioma;
             ObjetosVentana.cbOpcionesPantalla = cbOpcionesPantalla;
             ObjetosVentana.botonOpcionesLimpiar = botonOpcionesLimpiar;
@@ -171,6 +195,15 @@ namespace Tiles_Games
             public static MenuFlyout menuItemMenu { get; set; }
             public static NavigationViewItem nvItemOpciones { get; set; }
             public static NavigationViewItem nvItemSubirArriba { get; set; }
+            public static Grid gridCierre { get; set; }
+
+            //-------------------------------------------------------------------
+
+            public static Button botonCerrarAppSi { get; set; }
+            public static Button botonCerrarAppNo { get; set; }
+            public static FontAwesome iconoCerrarAppAzar { get; set; }
+            public static TextBlock tbCerrarAppAzar { get; set; }
+            public static Button botonCerrarAppAzar { get; set; }
 
             //-------------------------------------------------------------------
 
@@ -229,7 +262,8 @@ namespace Tiles_Games
 
             //-------------------------------------------------------------------
 
-            public static StackPanel spBattlenetJuegosInstaladosMensaje { get; set; }
+            public static Grid gridBattlenetMensajeSiJuegos { get; set; }
+            public static Button botonBattlenetCerrarMensajeSiJuegos { get; set; }
             public static ScrollViewer svBattlenetJuegosInstalados { get; set; }
             public static ProgressRing prBattlenetJuegosInstalados { get; set; }
             public static AdaptiveGridView gvBattlenetJuegosInstalados { get; set; }
@@ -254,7 +288,13 @@ namespace Tiles_Games
 
             //-------------------------------------------------------------------
 
+            public static StackPanel spTilesBotones { get; set; }
             public static ScrollViewer svTilesPrecarga { get; set; }
+            public static StackPanel spTilesPestañas { get; set; }
+            public static FontAwesome iconoTilesPrecargaPequeña { get; set; }
+            public static FontAwesome iconoTilesPrecargaMediana { get; set; }
+            public static FontAwesome iconoTilesPrecargaAncha { get; set; }
+            public static FontAwesome iconoTilesPrecargaGrande { get; set; }
             public static TextBox tbTilesPrecargaTitulo { get; set; }
             public static TextBox tbTilesPrecargaEjecutable { get; set; }
             public static TextBox tbTilesPrecargaArgumentos { get; set; }
@@ -266,10 +306,14 @@ namespace Tiles_Games
             public static Grid gridTilesPrecargaImagenMediana { get; set; }
             public static Grid gridTilesPrecargaImagenAncha { get; set; }
             public static Grid gridTilesPrecargaImagenGrande { get; set; }
-            public static ImageEx imagenTilesPrecargaPequeña { get; set; }
-            public static ImageEx imagenTilesPrecargaMediana { get; set; }
-            public static ImageEx imagenTilesPrecargaAncha { get; set; }
-            public static ImageEx imagenTilesPrecargaGrande { get; set; }
+            public static Image imagenTilesPrecargaPequeña { get; set; }
+            public static Image imagenTilesPrecargaMediana { get; set; }
+            public static Image imagenTilesPrecargaAncha { get; set; }
+            public static Image imagenTilesPrecargaGrande { get; set; }
+            public static Image imagenTilesPrecargaPequeña2 { get; set; }
+            public static Image imagenTilesPrecargaMediana2 { get; set; }
+            public static Image imagenTilesPrecargaAncha2 { get; set; }
+            public static Image imagenTilesPrecargaGrande2 { get; set; }
             public static ComboBox cbTilesPrecargaPequeñaEstiramiento { get; set; }
             public static ComboBox cbTilesPrecargaMedianaEstiramiento { get; set; }
             public static ComboBox cbTilesPrecargaAnchaEstiramiento { get; set; }
@@ -286,7 +330,9 @@ namespace Tiles_Games
 
             //-------------------------------------------------------------------
 
+            public static StackPanel spOpcionesBotones { get; set; }
             public static ScrollViewer svOpciones { get; set; }
+            public static StackPanel spOpcionesPestañas { get; set; }
             public static ComboBox cbOpcionesIdioma { get; set; }
             public static ComboBox cbOpcionesPantalla { get; set; }
             public static Button botonOpcionesLimpiar { get; set; }
@@ -307,42 +353,42 @@ namespace Tiles_Games
 
             //----------------------------------------------------------
 
-            GridViewItem itemSteam = Presentacion.CreadorBotones("/Assets/Plataformas/logo_steam_completo.png", "Steam", false);
+            GridViewItem itemSteam = Presentacion.CreadorBotones("/Assets/Plataformas/logo_steam_completo.png", "Steam", false, 20);
             Button2 botonSteam = itemSteam.Content as Button2;
             botonSteam.Click += AbrirSteamClick;
             ObjetosVentana.gvPresentacionPlataformas.Items.Add(itemSteam);
 
-            GridViewItem itemGOG = Presentacion.CreadorBotones("/Assets/Plataformas/logo_gog.png", "GOG", false);
+            GridViewItem itemGOG = Presentacion.CreadorBotones("/Assets/Plataformas/logo_gog.png", "GOG", false, 20);
             Button2 botonGOG = itemGOG.Content as Button2;
             botonGOG.Click += AbrirGOGClick;
             ObjetosVentana.gvPresentacionPlataformas.Items.Add(itemGOG);
 
-            GridViewItem itemEAPlay = Presentacion.CreadorBotones("/Assets/Plataformas/logo_eaplay_completo.png", "EA Play", false);
+            GridViewItem itemEAPlay = Presentacion.CreadorBotones("/Assets/Plataformas/logo_eaplay_completo.png", "EA Play", false, 20);
             Button2 botonEAPlay = itemEAPlay.Content as Button2;
             botonEAPlay.Click += AbrirEAPlayClick;
             ObjetosVentana.gvPresentacionPlataformas.Items.Add(itemEAPlay);
 
-            GridViewItem itemUbisoft = Presentacion.CreadorBotones("/Assets/Plataformas/logo_ubisoft_completo.png", "Ubisoft Connect", false);
+            GridViewItem itemUbisoft = Presentacion.CreadorBotones("/Assets/Plataformas/logo_ubisoft_completo.png", "Ubisoft Connect", false, 20);
             Button2 botonUbisoft = itemUbisoft.Content as Button2;
             botonUbisoft.Click += AbrirUbisoftClick;
             ObjetosVentana.gvPresentacionPlataformas.Items.Add(itemUbisoft);
 
-            GridViewItem itemBattlenet = Presentacion.CreadorBotones("/Assets/Plataformas/logo_battlenet_completo.png", "Battle.net", false);
+            GridViewItem itemBattlenet = Presentacion.CreadorBotones("/Assets/Plataformas/logo_battlenet_completo.png", "Battle.net", false, 20);
             Button2 botonBattlenet = itemBattlenet.Content as Button2;
             botonBattlenet.Click += AbrirBattlenetClick;
             ObjetosVentana.gvPresentacionPlataformas.Items.Add(itemBattlenet);
 
-            GridViewItem itemAmazon = Presentacion.CreadorBotones("/Assets/Plataformas/logo_amazon.png", "Amazon Games", false);
+            GridViewItem itemAmazon = Presentacion.CreadorBotones("/Assets/Plataformas/logo_amazon.png", "Amazon Games", false, 20);
             Button2 botonAmazon = itemAmazon.Content as Button2;
             botonAmazon.Click += AbrirAmazonClick;
             ObjetosVentana.gvPresentacionPlataformas.Items.Add(itemAmazon);
 
-            GridViewItem itemEpicGames = Presentacion.CreadorBotones("/Assets/Plataformas/logo_epicgames.png", "Epic Games", false);
+            GridViewItem itemEpicGames = Presentacion.CreadorBotones("/Assets/Plataformas/logo_epicgames.png", "Epic Games", false, 10);
             Button2 botonEpicGames = itemEpicGames.Content as Button2;
             botonEpicGames.Click += AbrirEpicGamesClick;
             ObjetosVentana.gvPresentacionPlataformas.Items.Add(itemEpicGames);
 
-            GridViewItem itemCualquierJuego = Presentacion.CreadorBotones("/Assets/Plataformas/logo_cualquierjuego.png", recursos.GetString("AnyGame"), true);
+            GridViewItem itemCualquierJuego = Presentacion.CreadorBotones("/Assets/Plataformas/logo_cualquierjuego.png", recursos.GetString("AnyGame"), true, 20);
             Button2 botonCualquierJuego = itemCualquierJuego.Content as Button2;
             botonCualquierJuego.Click += AbrirCualquierJuegoClick;
             ObjetosVentana.gvPresentacionPlataformas.Items.Add(itemCualquierJuego);

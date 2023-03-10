@@ -5,7 +5,6 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.Windows.ApplicationModel.Resources;
 using System;
-using Windows.ApplicationModel;
 using Windows.System;
 using Windows.UI;
 using static Tiles_Games.MainWindow;
@@ -20,25 +19,25 @@ namespace Interfaz
 
             //--------------------------------------------------------------------
 
-            //FontAwesome icono1 = new FontAwesome
-            //{
-            //    Icon = EFontAwesomeIcon.Solid_ThumbsUp,
-            //    Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])
-            //};
+            FontAwesome icono1 = new FontAwesome
+            {
+                Icon = EFontAwesomeIcon.Solid_ThumbsUp,
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"])
+            };
 
-            //MenuFlyoutItem2 item1 = new MenuFlyoutItem2
-            //{
-            //    Icon = icono1,
-            //    Text = recursos.GetString("MenuRate"),
-            //    Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
-            //    RequestedTheme = ElementTheme.Dark
-            //};
+            MenuFlyoutItem2 item1 = new MenuFlyoutItem2
+            {
+                Icon = icono1,
+                Text = recursos.GetString("MenuRate"),
+                Foreground = new SolidColorBrush((Color)Application.Current.Resources["ColorFuente"]),
+                RequestedTheme = ElementTheme.Dark
+            };
 
-            //item1.Click += BotonAbrirVotar;
-            //item1.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
-            //item1.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
+            item1.Click += BotonAbrirVotar;
+            item1.PointerEntered += Animaciones.EntraRatonMenuFlyoutItem2;
+            item1.PointerExited += Animaciones.SaleRatonMenuFlyoutItem2;
 
-            //ObjetosVentana.menuItemMenu.Items.Add(item1);
+            ObjetosVentana.menuItemMenu.Items.Add(item1);
 
             FontAwesome icono2 = new FontAwesome
             {
@@ -172,12 +171,12 @@ namespace Interfaz
 
         public async static void BotonAbrirVotar(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("ms-windows-store:REVIEW?PFN=" + Package.Current.Id.FamilyName));
+            await Launcher.LaunchUriAsync(new Uri(AppDatos.Votar));
         }
 
         public async static void BotonAbrirCodigoFuente(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("https://github.com/pepeizq/Widgets-Games"));
+            await Launcher.LaunchUriAsync(new Uri(AppDatos.Github));
         }
 
         public async static void BotonAbrirContactar(object sender, RoutedEventArgs e)
@@ -187,7 +186,7 @@ namespace Interfaz
 
         public async static void BotonAbrirNotasParche(object sender, RoutedEventArgs e)
         {
-            await Launcher.LaunchUriAsync(new Uri("https://pepeizqapps.com/patch-notes/"));
+            await Launcher.LaunchUriAsync(new Uri(AppDatos.NotasParches));
         }
 
         public async static void BotonAbrirWeb1(object sender, RoutedEventArgs e)

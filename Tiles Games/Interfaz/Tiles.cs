@@ -1,12 +1,16 @@
 ﻿using CommunityToolkit.WinUI.Notifications;
 using CommunityToolkit.WinUI.UI.Controls;
+using FontAwesome6;
 using Herramientas;
+using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.VisualBasic;
 using System;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Notifications;
 using Windows.UI.StartScreen;
 using WinRT.Interop;
@@ -17,16 +21,35 @@ namespace Interfaz
     public static class Tiles
     {
         public static void Cargar()
-        { 
+        {
+            int i = 0;
+            foreach (Button2 boton in ObjetosVentana.spTilesBotones.Children)
+            {
+                boton.Tag = i;
+                boton.Click += CambiarPestaña;
+                boton.PointerEntered += Animaciones.EntraRatonBoton2;
+                boton.PointerExited += Animaciones.SaleRatonBoton2;
+
+                i += 1;
+            }
+
+            CambiarPestaña(0);
+
+            //---------------------------------
+
             ObjetosVentana.tbTilesPrecargaImagenPequeña.TextChanged += ActualizarImagenPequeña;
             ObjetosVentana.tbTilesPrecargaImagenMediana.TextChanged += ActualizarImagenMediana;
             ObjetosVentana.tbTilesPrecargaImagenAncha.TextChanged += ActualizarImagenAncha;
             ObjetosVentana.tbTilesPrecargaImagenGrande.TextChanged += ActualizarImagenGrande;
 
-            ObjetosVentana.imagenTilesPrecargaPequeña.ImageExFailed += ImagenPequeñaFalla;
-            ObjetosVentana.imagenTilesPrecargaMediana.ImageExFailed += ImagenMedianaFalla;
-            ObjetosVentana.imagenTilesPrecargaAncha.ImageExFailed += ImagenAnchaFalla;
-            ObjetosVentana.imagenTilesPrecargaGrande.ImageExFailed += ImagenGrandeFalla;
+            ObjetosVentana.imagenTilesPrecargaPequeña.ImageOpened += ImagenPequeñaCarga;
+            ObjetosVentana.imagenTilesPrecargaPequeña.ImageFailed += ImagenPequeñaFalla;
+            ObjetosVentana.imagenTilesPrecargaMediana.ImageOpened += ImagenMedianaCarga;
+            ObjetosVentana.imagenTilesPrecargaMediana.ImageFailed += ImagenMedianaFalla;
+            ObjetosVentana.imagenTilesPrecargaAncha.ImageOpened += ImagenAnchaCarga;
+            ObjetosVentana.imagenTilesPrecargaAncha.ImageFailed += ImagenAnchaFalla;
+            ObjetosVentana.imagenTilesPrecargaGrande.ImageOpened += ImagenGrandeCarga;
+            ObjetosVentana.imagenTilesPrecargaGrande.ImageFailed += ImagenGrandeFalla;
 
             ObjetosVentana.cbTilesPrecargaPequeñaEstiramiento.SelectionChanged += EstiramientoPequeñaCambio;
             ObjetosVentana.cbTilesPrecargaPequeñaEstiramiento.PointerEntered += Animaciones.EntraRatonComboCaja2;
@@ -71,13 +94,50 @@ namespace Interfaz
             ObjetosVentana.botonTilesCargarJuego.PointerEntered += Animaciones.EntraRatonBoton2;
             ObjetosVentana.botonTilesCargarJuego.PointerExited += Animaciones.SaleRatonBoton2;
         }
+
+        private static void CambiarPestaña(object sender, RoutedEventArgs e)
+        {
+            Button2 botonPulsado = sender as Button2;
+            int pestañaMostrar = (int)botonPulsado.Tag;
+            CambiarPestaña(pestañaMostrar);
+        }
+
+        private static void CambiarPestaña(int botonPulsado)
+        {
+            SolidColorBrush colorPulsado = new SolidColorBrush((Color)Application.Current.Resources["ColorPrimario"]);
+            colorPulsado.Opacity = 0.6;
+
+            int i = 0;
+            foreach (Button2 boton in ObjetosVentana.spTilesBotones.Children)
+            {
+                if (i == botonPulsado)
+                {
+                    boton.Background = colorPulsado;
+                }
+                else
+                {
+                    boton.Background = new SolidColorBrush(Colors.Transparent);
+                }
+
+                i += 1;
+            }
+
+            foreach (StackPanel sp in ObjetosVentana.spTilesPestañas.Children)
+            {
+                sp.Visibility = Visibility.Collapsed;
+            }
+
+            StackPanel spMostrar = ObjetosVentana.spTilesPestañas.Children[botonPulsado] as StackPanel;
+            spMostrar.Visibility = Visibility.Visible;
+        }
         private static void ActualizarImagenPequeña(object sender, TextChangedEventArgs e)
         {
             TextBox tb = sender as TextBox;
 
             try
             {
-                ObjetosVentana.imagenTilesPrecargaPequeña.Source = tb.Text;
+                ObjetosVentana.imagenTilesPrecargaPequeña.Source = new BitmapImage(new Uri(tb.Text));
+                ObjetosVentana.imagenTilesPrecargaPequeña2.Source = new BitmapImage(new Uri(tb.Text));
             }
             catch { }
         }
@@ -88,7 +148,8 @@ namespace Interfaz
 
             try
             {
-                ObjetosVentana.imagenTilesPrecargaMediana.Source = tb.Text;
+                ObjetosVentana.imagenTilesPrecargaMediana.Source = new BitmapImage(new Uri(tb.Text));
+                ObjetosVentana.imagenTilesPrecargaMediana2.Source = new BitmapImage(new Uri(tb.Text));
             }
             catch { }
         }
@@ -99,7 +160,8 @@ namespace Interfaz
 
             try
             {
-                ObjetosVentana.imagenTilesPrecargaAncha.Source = tb.Text;
+                ObjetosVentana.imagenTilesPrecargaAncha.Source = new BitmapImage(new Uri(tb.Text));
+                ObjetosVentana.imagenTilesPrecargaAncha2.Source = new BitmapImage(new Uri(tb.Text));
             }
             catch { }           
         }
@@ -110,12 +172,18 @@ namespace Interfaz
 
             try
             {
-                ObjetosVentana.imagenTilesPrecargaGrande.Source = tb.Text;
+                ObjetosVentana.imagenTilesPrecargaGrande.Source = new BitmapImage(new Uri(tb.Text));
+                ObjetosVentana.imagenTilesPrecargaGrande2.Source = new BitmapImage(new Uri(tb.Text));
             }
             catch { }
         }
 
-        private static void ImagenPequeñaFalla(object sender, ImageExFailedEventArgs e) 
+        private static void ImagenPequeñaCarga(object sender, RoutedEventArgs e)
+        {
+            ObjetosVentana.iconoTilesPrecargaPequeña.Icon = EFontAwesomeIcon.Solid_Check;
+        }
+
+        private static void ImagenPequeñaFalla(object sender, ExceptionRoutedEventArgs e) 
         {
             ImageEx imagen = sender as ImageEx;
 
@@ -130,9 +198,16 @@ namespace Interfaz
                 ObjetosVentana.tbTilesPrecargaImagenPequeña.Text = null;
             }
             catch { }
+
+            ObjetosVentana.iconoTilesPrecargaPequeña.Icon = EFontAwesomeIcon.Solid_Xmark;
         }
 
-        private static void ImagenMedianaFalla(object sender, ImageExFailedEventArgs e)
+        private static void ImagenMedianaCarga(object sender, RoutedEventArgs e)
+        {
+            ObjetosVentana.iconoTilesPrecargaMediana.Icon = EFontAwesomeIcon.Solid_Check;
+        }
+
+        private static void ImagenMedianaFalla(object sender, ExceptionRoutedEventArgs e)
         {
             ImageEx imagen = sender as ImageEx;
 
@@ -147,9 +222,16 @@ namespace Interfaz
                 ObjetosVentana.tbTilesPrecargaImagenMediana.Text = null;
             }
             catch { }
+
+            ObjetosVentana.iconoTilesPrecargaMediana.Icon = EFontAwesomeIcon.Solid_Xmark;
         }
 
-        private static void ImagenAnchaFalla(object sender, ImageExFailedEventArgs e)
+        private static void ImagenAnchaCarga(object sender, RoutedEventArgs e)
+        {
+            ObjetosVentana.iconoTilesPrecargaAncha.Icon = EFontAwesomeIcon.Solid_Check;
+        }
+
+        private static void ImagenAnchaFalla(object sender, ExceptionRoutedEventArgs e)
         {
             ImageEx imagen = sender as ImageEx;
 
@@ -164,9 +246,16 @@ namespace Interfaz
                 ObjetosVentana.tbTilesPrecargaImagenAncha.Text = null;
             }
             catch { }
+
+            ObjetosVentana.iconoTilesPrecargaAncha.Icon = EFontAwesomeIcon.Solid_Xmark;
         }
 
-        private static void ImagenGrandeFalla(object sender, ImageExFailedEventArgs e)
+        private static void ImagenGrandeCarga(object sender, RoutedEventArgs e)
+        {
+            ObjetosVentana.iconoTilesPrecargaGrande.Icon = EFontAwesomeIcon.Solid_Check;
+        }
+
+        private static void ImagenGrandeFalla(object sender, ExceptionRoutedEventArgs e)
         {
             ImageEx imagen = sender as ImageEx;
 
@@ -181,137 +270,151 @@ namespace Interfaz
                 ObjetosVentana.tbTilesPrecargaImagenGrande.Text = null;
             }
             catch { }
+
+            ObjetosVentana.iconoTilesPrecargaGrande.Icon = EFontAwesomeIcon.Solid_Xmark;
         }
 
         private static void EstiramientoPequeñaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            EstiramientoImagen(cb, ObjetosVentana.imagenTilesPrecargaPequeña);
+            EstiramientoImagen(cb, ObjetosVentana.imagenTilesPrecargaPequeña, ObjetosVentana.imagenTilesPrecargaPequeña2);
         }
 
         private static void EstiramientoMedianaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            EstiramientoImagen(cb, ObjetosVentana.imagenTilesPrecargaMediana);
+            EstiramientoImagen(cb, ObjetosVentana.imagenTilesPrecargaMediana, ObjetosVentana.imagenTilesPrecargaMediana2);
         }
 
         private static void EstiramientoAnchaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            EstiramientoImagen(cb, ObjetosVentana.imagenTilesPrecargaAncha);
+            EstiramientoImagen(cb, ObjetosVentana.imagenTilesPrecargaAncha, ObjetosVentana.imagenTilesPrecargaAncha2);
         }
 
         private static void EstiramientoGrandeCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            EstiramientoImagen(cb, ObjetosVentana.imagenTilesPrecargaGrande);
+            EstiramientoImagen(cb, ObjetosVentana.imagenTilesPrecargaGrande, ObjetosVentana.imagenTilesPrecargaGrande2);
         }
 
-        private static void EstiramientoImagen(ComboBox2 cb, ImageEx imagen)
+        private static void EstiramientoImagen(ComboBox2 cb, Image imagen1, Image imagen2)
         {
             if (cb.SelectedIndex == 0)
             {
-                imagen.Stretch = Stretch.None;
+                imagen1.Stretch = Stretch.None;
+                imagen2.Stretch = Stretch.None;
             }
             else if (cb.SelectedIndex == 1)
             {
-                imagen.Stretch = Stretch.Fill;
+                imagen1.Stretch = Stretch.Fill;
+                imagen2.Stretch = Stretch.Fill;
             }
             else if (cb.SelectedIndex == 2)
             {
-                imagen.Stretch = Stretch.Uniform;
+                imagen1.Stretch = Stretch.Uniform;
+                imagen2.Stretch = Stretch.Uniform;
             }
             else if (cb.SelectedIndex == 3)
             {
-                imagen.Stretch = Stretch.UniformToFill;
+                imagen1.Stretch = Stretch.UniformToFill;
+                imagen2.Stretch = Stretch.UniformToFill;
             }
         }
 
         private static void OrientacionHorizontalPequeñaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            OrientacionHorizontalImagen(cb, ObjetosVentana.imagenTilesPrecargaPequeña);
+            OrientacionHorizontalImagen(cb, ObjetosVentana.imagenTilesPrecargaPequeña, ObjetosVentana.imagenTilesPrecargaPequeña2);
         }
 
         private static void OrientacionHorizontalMedianaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            OrientacionHorizontalImagen(cb, ObjetosVentana.imagenTilesPrecargaMediana);
+            OrientacionHorizontalImagen(cb, ObjetosVentana.imagenTilesPrecargaMediana, ObjetosVentana.imagenTilesPrecargaMediana2);
         }
 
         private static void OrientacionHorizontalAnchaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            OrientacionHorizontalImagen(cb, ObjetosVentana.imagenTilesPrecargaAncha);
+            OrientacionHorizontalImagen(cb, ObjetosVentana.imagenTilesPrecargaAncha, ObjetosVentana.imagenTilesPrecargaAncha2);
         }
 
         private static void OrientacionHorizontalGrandeCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            OrientacionHorizontalImagen(cb, ObjetosVentana.imagenTilesPrecargaGrande);
+            OrientacionHorizontalImagen(cb, ObjetosVentana.imagenTilesPrecargaGrande, ObjetosVentana.imagenTilesPrecargaGrande2);
         }
 
-        private static void OrientacionHorizontalImagen(ComboBox2 cb, ImageEx imagen)
+        private static void OrientacionHorizontalImagen(ComboBox2 cb, Image imagen1, Image imagen2)
         {
             if (cb.SelectedIndex == 0)
             {
-                imagen.HorizontalAlignment = HorizontalAlignment.Left;
+                imagen1.HorizontalAlignment = HorizontalAlignment.Left;
+                imagen2.HorizontalAlignment = HorizontalAlignment.Left;
             }
             else if (cb.SelectedIndex == 1)
             {
-                imagen.HorizontalAlignment = HorizontalAlignment.Center;
+                imagen1.HorizontalAlignment = HorizontalAlignment.Center;
+                imagen2.HorizontalAlignment = HorizontalAlignment.Center;
             }
             else if (cb.SelectedIndex == 2)
             {
-                imagen.HorizontalAlignment = HorizontalAlignment.Right;
+                imagen1.HorizontalAlignment = HorizontalAlignment.Right;
+                imagen2.HorizontalAlignment = HorizontalAlignment.Right;
             }
             else if (cb.SelectedIndex == 3)
             {
-                imagen.HorizontalAlignment = HorizontalAlignment.Stretch;
+                imagen1.HorizontalAlignment = HorizontalAlignment.Stretch;
+                imagen2.HorizontalAlignment = HorizontalAlignment.Stretch;
             }
         }
 
         private static void OrientacionVerticalPequeñaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            OrientacionVerticalImagen(cb, ObjetosVentana.imagenTilesPrecargaPequeña);
+            OrientacionVerticalImagen(cb, ObjetosVentana.imagenTilesPrecargaPequeña, ObjetosVentana.imagenTilesPrecargaPequeña2);
         }
 
         private static void OrientacionVerticalMedianaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            OrientacionVerticalImagen(cb, ObjetosVentana.imagenTilesPrecargaMediana);
+            OrientacionVerticalImagen(cb, ObjetosVentana.imagenTilesPrecargaMediana, ObjetosVentana.imagenTilesPrecargaMediana2);
         }
 
         private static void OrientacionVerticalAnchaCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            OrientacionVerticalImagen(cb, ObjetosVentana.imagenTilesPrecargaAncha);
+            OrientacionVerticalImagen(cb, ObjetosVentana.imagenTilesPrecargaAncha, ObjetosVentana.imagenTilesPrecargaAncha2);
         }
 
         private static void OrientacionVerticalGrandeCambio(object sender, SelectionChangedEventArgs e)
         {
             ComboBox2 cb = sender as ComboBox2;
-            OrientacionVerticalImagen(cb, ObjetosVentana.imagenTilesPrecargaGrande);
+            OrientacionVerticalImagen(cb, ObjetosVentana.imagenTilesPrecargaGrande, ObjetosVentana.imagenTilesPrecargaGrande2);
         }
 
-        private static void OrientacionVerticalImagen(ComboBox2 cb, ImageEx imagen)
+        private static void OrientacionVerticalImagen(ComboBox2 cb, Image imagen1, Image imagen2)
         {
             if (cb.SelectedIndex == 0)
             {
-                imagen.VerticalAlignment = VerticalAlignment.Top;
+                imagen1.VerticalAlignment = VerticalAlignment.Top;
+                imagen2.VerticalAlignment = VerticalAlignment.Top;
             }
             else if (cb.SelectedIndex == 1)
             {
-                imagen.VerticalAlignment = VerticalAlignment.Center;
+                imagen1.VerticalAlignment = VerticalAlignment.Center;
+                imagen2.VerticalAlignment = VerticalAlignment.Center;
             }
             else if (cb.SelectedIndex == 2)
             {
-                imagen.VerticalAlignment = VerticalAlignment.Bottom;
+                imagen1.VerticalAlignment = VerticalAlignment.Bottom;
+                imagen2.VerticalAlignment = VerticalAlignment.Bottom;
             }
             else if (cb.SelectedIndex == 3)
             {
-                imagen.VerticalAlignment = VerticalAlignment.Stretch;
+                imagen1.VerticalAlignment = VerticalAlignment.Stretch;
+                imagen2.VerticalAlignment = VerticalAlignment.Stretch;
             }
         }
 
@@ -325,6 +428,11 @@ namespace Interfaz
 
             //-------------------------------------------------
 
+            ObjetosVentana.iconoTilesPrecargaPequeña.Icon = EFontAwesomeIcon.Solid_Xmark;
+            ObjetosVentana.iconoTilesPrecargaMediana.Icon = EFontAwesomeIcon.Solid_Xmark;
+            ObjetosVentana.iconoTilesPrecargaAncha.Icon = EFontAwesomeIcon.Solid_Xmark;
+            ObjetosVentana.iconoTilesPrecargaGrande.Icon = EFontAwesomeIcon.Solid_Xmark;
+
             ObjetosVentana.tbTilesPrecargaTitulo.Text = null;
             ObjetosVentana.tbTilesPrecargaEjecutable.Text = null;
             ObjetosVentana.tbTilesPrecargaArgumentos.Text = null;
@@ -336,6 +444,10 @@ namespace Interfaz
             ObjetosVentana.imagenTilesPrecargaMediana.Source = null;
             ObjetosVentana.imagenTilesPrecargaAncha.Source = null;
             ObjetosVentana.imagenTilesPrecargaGrande.Source = null;
+            ObjetosVentana.imagenTilesPrecargaPequeña2.Source = null;
+            ObjetosVentana.imagenTilesPrecargaMediana2.Source = null;
+            ObjetosVentana.imagenTilesPrecargaAncha2.Source = null;
+            ObjetosVentana.imagenTilesPrecargaGrande2.Source = null;
 
             //-------------------------------------------------
 
@@ -348,8 +460,10 @@ namespace Interfaz
 
             ObjetosVentana.tbTilesPrecargaImagenAncha.Text = imagenAncha;
             ObjetosVentana.tbTilesPrecargaImagenGrande.Text = imagenGrande;
-            ObjetosVentana.imagenTilesPrecargaAncha.Source = ObjetosVentana.tbTilesPrecargaImagenAncha.Text;
-            ObjetosVentana.imagenTilesPrecargaGrande.Source = ObjetosVentana.tbTilesPrecargaImagenGrande.Text;
+            ObjetosVentana.imagenTilesPrecargaAncha.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenAncha.Text)); 
+            ObjetosVentana.imagenTilesPrecargaGrande.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenGrande.Text));
+            ObjetosVentana.imagenTilesPrecargaAncha2.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenAncha.Text));
+            ObjetosVentana.imagenTilesPrecargaGrande2.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenGrande.Text));
 
             if (idSteam != null)
             {
@@ -384,43 +498,55 @@ namespace Interfaz
 
             ObjetosVentana.cbTilesPrecargaPequeñaEstiramiento.SelectedIndex = 2;
             ObjetosVentana.imagenTilesPrecargaPequeña.Stretch = Stretch.Uniform;
+            ObjetosVentana.imagenTilesPrecargaPequeña2.Stretch = Stretch.Uniform;
 
             ObjetosVentana.cbTilesPrecargaMedianaEstiramiento.SelectedIndex = 2;
             ObjetosVentana.imagenTilesPrecargaMediana.Stretch = Stretch.Uniform;
+            ObjetosVentana.imagenTilesPrecargaMediana2.Stretch = Stretch.Uniform;
 
             ObjetosVentana.cbTilesPrecargaAnchaEstiramiento.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaAncha.Stretch = Stretch.UniformToFill;
+            ObjetosVentana.imagenTilesPrecargaAncha2.Stretch = Stretch.UniformToFill;
 
             ObjetosVentana.cbTilesPrecargaGrandeEstiramiento.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaGrande.Stretch = Stretch.UniformToFill;
+            ObjetosVentana.imagenTilesPrecargaGrande2.Stretch = Stretch.UniformToFill;
 
             //-------------------------------------------------
 
             ObjetosVentana.cbTilesPrecargaPequeñaOrientacionHorizontal.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaPequeña.HorizontalAlignment = HorizontalAlignment.Stretch;
+            ObjetosVentana.imagenTilesPrecargaPequeña2.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             ObjetosVentana.cbTilesPrecargaMedianaOrientacionHorizontal.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaMediana.HorizontalAlignment = HorizontalAlignment.Stretch;
+            ObjetosVentana.imagenTilesPrecargaMediana2.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             ObjetosVentana.cbTilesPrecargaAnchaOrientacionHorizontal.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaAncha.HorizontalAlignment = HorizontalAlignment.Stretch;
+            ObjetosVentana.imagenTilesPrecargaAncha2.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             ObjetosVentana.cbTilesPrecargaGrandeOrientacionHorizontal.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaGrande.HorizontalAlignment = HorizontalAlignment.Stretch;
+            ObjetosVentana.imagenTilesPrecargaGrande2.HorizontalAlignment = HorizontalAlignment.Stretch;
 
             //-------------------------------------------------
 
             ObjetosVentana.cbTilesPrecargaPequeñaOrientacionVertical.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaPequeña.VerticalAlignment = VerticalAlignment.Stretch;
+            ObjetosVentana.imagenTilesPrecargaPequeña2.VerticalAlignment = VerticalAlignment.Stretch;
 
             ObjetosVentana.cbTilesPrecargaMedianaOrientacionVertical.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaMediana.VerticalAlignment = VerticalAlignment.Stretch;
+            ObjetosVentana.imagenTilesPrecargaMediana2.VerticalAlignment = VerticalAlignment.Stretch;
 
             ObjetosVentana.cbTilesPrecargaAnchaOrientacionVertical.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaAncha.VerticalAlignment = VerticalAlignment.Stretch;
+            ObjetosVentana.imagenTilesPrecargaAncha2.VerticalAlignment = VerticalAlignment.Stretch;
 
             ObjetosVentana.cbTilesPrecargaGrandeOrientacionVertical.SelectedIndex = 3;
             ObjetosVentana.imagenTilesPrecargaGrande.VerticalAlignment = VerticalAlignment.Stretch;
+            ObjetosVentana.imagenTilesPrecargaGrande2.VerticalAlignment = VerticalAlignment.Stretch;
 
             ActivarDesactivar(true);
         }

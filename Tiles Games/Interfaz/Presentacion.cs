@@ -9,13 +9,13 @@ namespace Interfaz
 {
     public static class Presentacion
     {
-        public static GridViewItem CreadorBotones(string imagenEnlace, string nombre, bool mostrarNombre)
+        public static GridViewItem CreadorBotones(string imagenEnlace, string nombre, bool mostrarNombre, int padding)
         {
             Button2 boton = new Button2
             {
                 Height = 80,
                 Width = 250,
-                Padding = new Thickness(20),
+                Padding = new Thickness(padding),
                 Background = new SolidColorBrush((Color)Application.Current.Resources["ColorPrimario"]),
                 Margin = new Thickness(0)
             };

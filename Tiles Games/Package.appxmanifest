@@ -4,14 +4,17 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  IgnorableNamespaces="uap rescap">
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  IgnorableNamespaces="uap rescap mp">
 
   <Identity
-    Name="504feed5-31bb-43e8-a14c-1ab38382a442"
-    Publisher="CN=C91088FC-231C-4E13-86D1-5F9658173DA7"
-    Version="1.0.3.0" />
+    Name="12041pepeizq.pepeizqsTilesforGames"
+    Publisher="CN=E6A59F16-60E0-4B88-A8A1-993C16A63CD0"
+    Version="1.0.4.0" />
 
-  <Properties>
+	<mp:PhoneIdentity PhoneProductId="E6A59F16-60E0-4B88-A8A1-993C16A63CD0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+	<Properties>
     <DisplayName>pepeizq&apos;s Tiles for Games</DisplayName>
     <PublisherDisplayName>pepeizq</PublisherDisplayName>
     <Logo>Assets\Logos2\StoreLogo.png</Logo>

@@ -1,23 +1,31 @@
-﻿using Microsoft.UI.Xaml;
-using Microsoft.Win32;
-using static Tiles_Games.MainWindow;
-using System.Collections.Generic;
+﻿using CommunityToolkit.WinUI.UI.Controls;
 using Herramientas;
-using Microsoft.VisualBasic;
-using Newtonsoft.Json;
-using CommunityToolkit.WinUI.UI.Controls;
+using Interfaz;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.VisualBasic;
+using Microsoft.Win32;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using Windows.Storage;
 using Windows.UI;
-using Interfaz;
+using static Tiles_Games.MainWindow;
 
 namespace Plataformas
 {
     public static class Battlenet
     {
+        public static void Cargar()
+        {
+            ObjetosVentana.botonBattlenetCerrarMensajeSiJuegos.Click += CerrarMensajeSiJuegosClick;
+            ObjetosVentana.botonBattlenetCerrarMensajeSiJuegos.PointerEntered += Animaciones.EntraRatonBoton2;
+            ObjetosVentana.botonBattlenetCerrarMensajeSiJuegos.PointerExited += Animaciones.SaleRatonBoton2;
+        }
+
         public static async void CargarJuegosInstalados()
         {
-            ObjetosVentana.spBattlenetJuegosInstaladosMensaje.Visibility = Visibility.Collapsed;
+            ObjetosVentana.gridBattlenetMensajeSiJuegos.Visibility = Visibility.Collapsed;
             ObjetosVentana.prBattlenetJuegosInstalados.Visibility = Visibility.Visible;
             ObjetosVentana.gvBattlenetJuegosInstalados.Visibility = Visibility.Collapsed;
             ObjetosVentana.tbBattlenetMensajeNoJuegos.Visibility = Visibility.Collapsed;
@@ -85,7 +93,24 @@ namespace Plataformas
 
                     if (listaJuegos.Count > 0)
                     {
-                        ObjetosVentana.spBattlenetJuegosInstaladosMensaje.Visibility = Visibility.Visible;
+                        ApplicationDataContainer datos = ApplicationData.Current.LocalSettings;
+
+                        if (datos.Values["BattlenetMensajeSiJuegos"] == null)
+                        {
+                            ObjetosVentana.gridBattlenetMensajeSiJuegos.Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            if ((bool)datos.Values["BattlenetMensajeSiJuegos"] == true)
+                            {
+                                ObjetosVentana.gridBattlenetMensajeSiJuegos.Visibility = Visibility.Visible;
+                            }
+                            else if ((bool)datos.Values["BattlenetMensajeSiJuegos"] == false)
+                            {
+                                ObjetosVentana.gridBattlenetMensajeSiJuegos.Visibility = Visibility.Collapsed;
+                            }
+                        }
+
                         ObjetosVentana.tbBattlenetMensajeNoJuegos.Visibility = Visibility.Collapsed;
                         ObjetosVentana.gvBattlenetJuegosInstalados.Visibility = Visibility.Visible;
                         ObjetosVentana.gvBattlenetJuegosInstalados.Items.Clear();
@@ -155,6 +180,14 @@ namespace Plataformas
                     juego.ejecutable, null, juego.idSteam, "battlenet",
                     juego.imagenPequeña,
                     juego.imagenGrande);
+        }
+
+        private static void CerrarMensajeSiJuegosClick(object sender, RoutedEventArgs e)
+        {
+            ObjetosVentana.gridBattlenetMensajeSiJuegos.Visibility = Visibility.Collapsed;
+
+            ApplicationDataContainer datos = ApplicationData.Current.LocalSettings;
+            datos.Values["BattlenetMensajeSiJuegos"] = false;
         }
     }
 

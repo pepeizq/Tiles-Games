@@ -120,11 +120,35 @@
   <data name="AnyGame" xml:space="preserve">
     <value>Cualquier Juego</value>
   </data>
+  <data name="AppClosingMessage1" xml:space="preserve">
+    <value>Esta aplicación es de código abierto y puedes consultarlo en Github, y si tienes cuenta allí te agradecería una estrella</value>
+  </data>
+  <data name="AppClosingMessage2" xml:space="preserve">
+    <value>Puedes valorar la aplicación en la Tienda de Microsoft, no te voy a decir como debes valorarme pero espero que tengáis en cuenta que soy un único desarrollador con la aplicación</value>
+  </data>
+  <data name="AppClosingMessage3" xml:space="preserve">
+    <value>Puedes consultar las últimas actualizaciones que he lanzado para esta aplicación en mi web, no esperéis kilométricas actualizaciones por que sólo dos manos trabajan en esta aplicación</value>
+  </data>
+  <data name="AppClosingNo.Text" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="AppClosingQuestion.Text" xml:space="preserve">
+    <value>¿Deseas cerrar la aplicación?</value>
+  </data>
+  <data name="AppClosingYes.Text" xml:space="preserve">
+    <value>Sí</value>
+  </data>
   <data name="Arguments.Text" xml:space="preserve">
     <value>Argumentos</value>
   </data>
-  <data name="BattlenetInstalledGamesMessage.Text" xml:space="preserve">
-    <value>Recuerda, para ejecutar el juego desde una tile debes tenerlo instalado en la aplicación de Battle.net.</value>
+  <data name="Arguments2.Text" xml:space="preserve">
+    <value>Esta línea de texto contiene los argumentos que necesite el ejecutable para los casos en el que la Tile ejecute un fichero .exe</value>
+  </data>
+  <data name="BattlenetInstalledGamesMessage1.Text" xml:space="preserve">
+    <value>Recuerda</value>
+  </data>
+  <data name="BattlenetInstalledGamesMessage2.Text" xml:space="preserve">
+    <value>Para ejecutar el juego que selecciones desde una Tile, debes tenerlo instalado en la aplicación de Battle.net</value>
   </data>
   <data name="Bottom.Text" xml:space="preserve">
     <value>Abajo</value>
@@ -143,6 +167,9 @@
   </data>
   <data name="Executable.Text" xml:space="preserve">
     <value>Ejecutable</value>
+  </data>
+  <data name="Executable2.Text" xml:space="preserve">
+    <value>Esta línea de texto contiene la ruta al fichero .exe o enlace que ejecutará la Tile</value>
   </data>
   <data name="Fill.Text" xml:space="preserve">
     <value>Rellenar</value>
@@ -189,6 +216,9 @@
   <data name="None.Text" xml:space="preserve">
     <value>Ninguno</value>
   </data>
+  <data name="Open.Text" xml:space="preserve">
+    <value>Abrir</value>
+  </data>
   <data name="Options" xml:space="preserve">
     <value>Opciones</value>
   </data>
@@ -199,7 +229,10 @@
     <value>Limpiar Datos</value>
   </data>
   <data name="OptionsAppCleanInfo.Text" xml:space="preserve">
-    <value>Pulsa el botón para limpiar todos los datos generados por la aplicación, se reiniciará la aplicación.</value>
+    <value>Limpiar Datos</value>
+  </data>
+  <data name="OptionsAppCleanInfo2.Text" xml:space="preserve">
+    <value>Todos los datos y ficheros generados por la aplicación serán eliminados, cuando termine se reiniciará la aplicación como si fuera una instalación limpia</value>
   </data>
   <data name="OptionsAppWindow1.Text" xml:space="preserve">
     <value>Defecto</value>
@@ -211,13 +244,13 @@
     <value>Superpuesta</value>
   </data>
   <data name="OptionsAppWindowInfo.Text" xml:space="preserve">
-    <value>Selecciona en que modo quieres que la aplicación se muestre en Windows:</value>
-  </data>
-  <data name="OptionsLanguage.Text" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Modo en el que se mostrará la aplicación en Windows</value>
   </data>
   <data name="OptionsLanguageInfo.Text" xml:space="preserve">
-    <value>Selecciona el idioma de la aplicación, es necesario un reinicio en la aplicación para efectuar el cambio.</value>
+    <value>Idioma de la aplicación</value>
+  </data>
+  <data name="OptionsLanguageInfo2.Text" xml:space="preserve">
+    <value>Es necesario un reinicio en la aplicación para efectuar el cambio</value>
   </data>
   <data name="OrientationHorizontal.Text" xml:space="preserve">
     <value>Orientación Horizontal</value>
@@ -233,9 +266,6 @@
   </data>
   <data name="SelectFolderInstalledGames.Text" xml:space="preserve">
     <value>Selecciona la carpeta donde tengas instalados los juegos:</value>
-  </data>
-  <data name="SourceUrl.Text" xml:space="preserve">
-    <value>Enlace Imagen:</value>
   </data>
   <data name="SteamAnyGames.Text" xml:space="preserve">
     <value>Cualquier juego</value>
@@ -258,20 +288,53 @@
   <data name="TileAddGame.Text" xml:space="preserve">
     <value>Añadir Tile del Juego</value>
   </data>
+  <data name="TileAddGameMessage.Text" xml:space="preserve">
+    <value>Si estás usando Windows 11 la aplicación solo puede añadir la Tile Pequeña en el menú de Inicio</value>
+  </data>
+  <data name="TileAddGamePreview.Text" xml:space="preserve">
+    <value>Vista previa de la Tile</value>
+  </data>
   <data name="TileBig.Text" xml:space="preserve">
     <value>Tile Grande</value>
+  </data>
+  <data name="TileBigImage.Text" xml:space="preserve">
+    <value>Imagen para la Tile Grande (310x310)</value>
+  </data>
+  <data name="TileBigImage2.Text" xml:space="preserve">
+    <value>Esta línea de texto contiene el enlace para la imagen de la Tile Grande</value>
   </data>
   <data name="TileMedium.Text" xml:space="preserve">
     <value>Tile Mediana</value>
   </data>
+  <data name="TileMediumImage.Text" xml:space="preserve">
+    <value>Imagen para la Tile Mediana (150x150)</value>
+  </data>
+  <data name="TileMediumImage2.Text" xml:space="preserve">
+    <value>Esta línea de texto contiene el enlace para la imagen de la Tile Mediana</value>
+  </data>
   <data name="TileSmall.Text" xml:space="preserve">
     <value>Tile Pequeña</value>
+  </data>
+  <data name="TileSmallImage.Text" xml:space="preserve">
+    <value>Imagen para la Tile Pequeña (44x44)</value>
+  </data>
+  <data name="TileSmallImage2.Text" xml:space="preserve">
+    <value>Esta línea de texto contiene el enlace para la imagen de la Tile Pequeña</value>
   </data>
   <data name="TileWide.Text" xml:space="preserve">
     <value>Tile Ancha</value>
   </data>
+  <data name="TileWideImage.Text" xml:space="preserve">
+    <value>Imagen para la Tile Ancha (310x150)</value>
+  </data>
+  <data name="TileWideImage2.Text" xml:space="preserve">
+    <value>Esta línea de texto contiene el enlace para la imagen de la Tile Ancha</value>
+  </data>
   <data name="Title.Text" xml:space="preserve">
     <value>Título</value>
+  </data>
+  <data name="Title2.Text" xml:space="preserve">
+    <value>Esta línea de texto contiene el título del juego que usará la Tile</value>
   </data>
   <data name="Top.Text" xml:space="preserve">
     <value>Arriba</value>
