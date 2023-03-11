@@ -460,10 +460,26 @@ namespace Interfaz
 
             ObjetosVentana.tbTilesPrecargaImagenAncha.Text = imagenAncha;
             ObjetosVentana.tbTilesPrecargaImagenGrande.Text = imagenGrande;
-            ObjetosVentana.imagenTilesPrecargaAncha.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenAncha.Text)); 
-            ObjetosVentana.imagenTilesPrecargaGrande.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenGrande.Text));
-            ObjetosVentana.imagenTilesPrecargaAncha2.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenAncha.Text));
-            ObjetosVentana.imagenTilesPrecargaGrande2.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenGrande.Text));
+
+            if (ObjetosVentana.tbTilesPrecargaImagenAncha.Text != string.Empty)
+            {
+                try
+                {
+                    ObjetosVentana.imagenTilesPrecargaAncha.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenAncha.Text));
+                    ObjetosVentana.imagenTilesPrecargaAncha2.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenAncha.Text));
+                }
+                catch { }
+            }
+
+            if (ObjetosVentana.tbTilesPrecargaImagenGrande.Text != string.Empty)
+            {
+                try
+                {
+                    ObjetosVentana.imagenTilesPrecargaGrande.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenGrande.Text));
+                    ObjetosVentana.imagenTilesPrecargaGrande2.Source = new BitmapImage(new Uri(ObjetosVentana.tbTilesPrecargaImagenGrande.Text));
+                }
+                catch { }
+            }
 
             if (idSteam != null)
             {

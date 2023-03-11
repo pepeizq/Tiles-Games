@@ -12,6 +12,10 @@
             
             <Color x:Key="ColorFuente">#f7fcff</Color>
             <Color x:Key="ColorPrimario">#171a21</Color>
+
+            <Color x:Key="ColorTrialFuente">#00376c</Color>
+            <Color x:Key="ColorTrialFondo">#80c0ff</Color>
+            <Color x:Key="ColorTrialBoton">#001932</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

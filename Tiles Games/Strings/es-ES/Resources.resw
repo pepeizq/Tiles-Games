@@ -339,6 +339,12 @@
   <data name="Top.Text" xml:space="preserve">
     <value>Arriba</value>
   </data>
+  <data name="TrialBuyApp.Text" xml:space="preserve">
+    <value>Comprar Aplicación</value>
+  </data>
+  <data name="TrialMessage.Text" xml:space="preserve">
+    <value>Estás usando una version trial de la aplicación, la única diferencia respecto a la versión comprada es que no aparecerá este mensaje molesto</value>
+  </data>
   <data name="Uniform.Text" xml:space="preserve">
     <value>Uniforme</value>
   </data>

@@ -10,7 +10,7 @@
   <Identity
     Name="12041pepeizq.pepeizqsTilesforGames"
     Publisher="CN=E6A59F16-60E0-4B88-A8A1-993C16A63CD0"
-    Version="1.0.4.0" />
+    Version="1.0.5.0" />
 
 	<mp:PhoneIdentity PhoneProductId="E6A59F16-60E0-4B88-A8A1-993C16A63CD0" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
