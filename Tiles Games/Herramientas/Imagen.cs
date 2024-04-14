@@ -29,9 +29,14 @@ namespace Herramientas
             using (IRandomAccessStream stream = await ficheroImagen.OpenAsync(FileAccessMode.ReadWrite))
             {
                 BitmapEncoder encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, stream);
-                encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Straight, (uint)resultado.PixelWidth, (uint)resultado.PixelHeight, 24, 24, pixeles);
 
-                await encoder.FlushAsync();
+                try
+                {
+                    encoder.SetPixelData(BitmapPixelFormat.Bgra8, BitmapAlphaMode.Straight, (uint)resultado.PixelWidth, (uint)resultado.PixelHeight, 24, 24, pixeles);
+
+                    await encoder.FlushAsync();
+                }
+                catch { }
             }
 
             return descargaFinalizada;

@@ -156,7 +156,7 @@ namespace Interfaz
             datos.Values["OpcionesPantalla"] = cb.SelectedIndex;
 
             IntPtr ventanaInt = WindowNative.GetWindowHandle(ObjetosVentana.ventana);
-            WindowId ventanaID = Win32Interop.GetWindowIdFromWindow(ventanaInt);
+			Microsoft.UI.WindowId ventanaID = Win32Interop.GetWindowIdFromWindow(ventanaInt);
             AppWindow ventana2 = AppWindow.GetFromWindowId(ventanaID);
 
             if (cb.SelectedIndex == 0)
