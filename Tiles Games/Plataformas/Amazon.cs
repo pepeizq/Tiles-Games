@@ -27,19 +27,23 @@ namespace Plataformas
 
             using (SqliteConnection conexion = new SqliteConnection("Data Source=" + rutaBDInstalados))
             {
-                conexion.Open();
-
-                SqliteCommand comando = conexion.CreateCommand();
-                comando.CommandText = @"SELECT * FROM DbSet WHERE Installed = 1;";
-
-                using (SqliteDataReader lector = comando.ExecuteReader())
+                try
                 {
-                    while (lector.Read())
+                    conexion.Open();
+
+                    SqliteCommand comando = conexion.CreateCommand();
+                    comando.CommandText = @"SELECT * FROM DbSet WHERE Installed = 1;";
+
+                    using (SqliteDataReader lector = comando.ExecuteReader())
                     {
-                        string id = lector.GetString(0);
-                        listaIDsInstalados.Add(id);
+                        while (lector.Read())
+                        {
+                            string id = lector.GetString(0);
+                            listaIDsInstalados.Add(id);
+                        }
                     }
                 }
+                catch { }
             }
 
             if (listaIDsInstalados.Count > 0)
